@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Refamovil</string>
+    <string name="toolbartitle">REFAMOVIL</string>
+    <string name="bienvenida">¡Bienvenido de nuevo!</string>
+    <string name="usuario">Usuario</string>
+    <string name="psswd">Contraseña</string>
+    <string name="btnEntrar">ENTRAR</string>
+    <string name="account">¿No Tienes Cuenta?</string>
+    <string name="new_Account">Crear Cuenta Nueva</string>
+    <string name="Registrar">Regístrate</string>
+    <string name="nombre">Nombre</string>
+    <string name="apellidos">Apellidos</string>
+    <string name="email">Correo Electronico</string>
+    <string name="haveAccount">¿Ya tienes cuenta?</string>
+    <string name="login">Inicia Sesión</string>
+
+</resources>

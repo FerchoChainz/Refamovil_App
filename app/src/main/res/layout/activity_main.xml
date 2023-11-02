@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="417dp"
+        android:layout_height="63dp"
+        android:background="@color/black"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/jlbTituloToolBar"
+        android:layout_width="402dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/merriweatherbold"
+        android:text="@string/toolbartitle"
+        android:textAlignment="viewStart"
+        android:textColor="@color/white"
+        android:textSize="34sp"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="@+id/toolbar"
+        app:layout_constraintTop_toTopOf="@+id/toolbar" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="348dp"
+        android:layout_height="199dp"
+        android:layout_marginTop="92dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/toolbar"
+        app:srcCompat="@mipmap/logo" />
+
+    <TextView
+        android:id="@+id/jlbBienvenida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/merriweatherregular"
+        android:text="@string/bienvenida"
+        android:textColor="@color/semi_black"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <EditText
+        android:id="@+id/txtUser"
+        android:layout_width="344dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="396dp"
+        android:background="#d9d9d9"
+        android:ems="10"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/toolbar" />
+
+    <TextView
+        android:id="@+id/jlbUsuario"
+        android:layout_width="104dp"
+        android:layout_height="35dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="@font/merriweatherregular"
+        android:text="@string/usuario"
+        android:textColor="@color/semi_black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/txtUser"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.107"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/jlbPsswd"
+        android:layout_width="123dp"
+        android:layout_height="32dp"
+        android:layout_marginBottom="4dp"
+        android:fontFamily="@font/merriweatherregular"
+        android:text="@string/psswd"
+        android:textColor="@color/semi_black"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/txtPsswd"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.107"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/txtPsswd"
+        android:layout_width="344dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="500dp"
+        android:background="#d9d9d9"
+        android:ems="10"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.462"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/toolbar" />
+
+
+    <TextView
+        android:id="@+id/jlbNewAccount"
+        android:layout_width="165dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/merriweatherlight"
+        android:text="@string/new_Account"
+        android:textColor="#003C64"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.853"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnEntrar" />
+
+    <TextView
+        android:id="@+id/jlbAccount"
+        android:layout_width="165dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/merriweatherregular"
+        android:text="@string/account"
+        android:textColor="@color/semi_black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.134"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnEntrar" />
+
+    <Button
+        android:id="@+id/btnEntrar"
+        android:layout_width="337dp"
+        android:layout_height="54dp"
+        android:layout_marginTop="20dp"
+        android:backgroundTint="@color/orange"
+        android:fontFamily="@font/merriweatherregular"
+        android:text="@string/btnEntrar"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.471"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtPsswd" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
