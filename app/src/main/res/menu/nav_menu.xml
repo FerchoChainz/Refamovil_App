@@ -19,6 +19,12 @@
         android:title="">
 
         <menu>
+            <item
+                android:id="@+id/pruebaId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:icon="@drawable/prueba_ic"
+                android:title="Inicio" />
             <item android:title="Logout"
                 android:icon="@drawable/prueba_ic"
                 android:id="@+id/pruebaId"/>
