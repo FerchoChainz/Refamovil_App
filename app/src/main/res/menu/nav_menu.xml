@@ -3,31 +3,40 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group
-        android:checkableBehavior="single">
-
-
-
-        <item
-            android:id="@+id/nav_productos"
-            android:icon="@drawable/prueba_ic"
-            android:title="Productos"/>
-
-    </group>
-
     <item
         android:title="">
 
         <menu>
             <item
-                android:id="@+id/pruebaId"
+                android:id="@+id/nav_Inicio"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/prueba_ic"
                 android:title="Inicio" />
-            <item android:title="Logout"
-                android:icon="@drawable/prueba_ic"
-                android:id="@+id/pruebaId"/>
+            <item
+                android:id="@+id/nav_Productos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:title="Productos" />
+            <item
+                android:id="@+id/nav_Buscar_Productos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:title="Buscar Productos" />
+            <item
+                android:id="@+id/nav_Compras"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:title="Ver Compras" />
+            <item
+                android:id="@+id/nav_sucursales"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:title="Nuetras Sucursales" />
+            <item
+                android:id="@+id/nav_nosotros"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:title="Sobre Nosotros" />
         </menu>
     </item>
 </menu>
