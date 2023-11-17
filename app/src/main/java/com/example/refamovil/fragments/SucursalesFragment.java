@@ -1,5 +1,6 @@
 package com.example.refamovil.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,8 +8,10 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import com.example.refamovil.R;
+import com.example.refamovil.fragment_nuestras_sucursales;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -61,6 +64,25 @@ public class SucursalesFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sucursales, container, false);
+        View view = inflater.inflate(R.layout.fragment_sucursales, container, false);
+
+        // Agregar un OnClickListener al elemento de la interfaz de usuario que debe iniciar la nueva actividad
+        Button btnIrAActividad = view.findViewById(R.id.btnIrAActividad); // Reemplaza con el ID de tu botón
+        btnIrAActividad.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Llamada al método para iniciar la nueva actividad
+                irANuevaActividad();
+            }
+        });
+
+        return view;
     }
+
+    // Método para iniciar la nueva actividad
+    private void irANuevaActividad() {
+        Intent intent = new Intent(getActivity(), fragment_nuestras_sucursales.class); // Reemplaza con el nombre de tu actividad
+        startActivity(intent);
+    }
+
 }
