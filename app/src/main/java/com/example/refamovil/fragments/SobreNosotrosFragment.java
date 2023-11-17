@@ -1,5 +1,6 @@
 package com.example.refamovil.fragments;
 
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,6 +8,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.MediaController;
+import android.widget.VideoView;
 
 import com.example.refamovil.R;
 
@@ -16,6 +19,7 @@ import com.example.refamovil.R;
  * create an instance of this fragment.
  */
 public class SobreNosotrosFragment extends Fragment {
+    private VideoView videoView;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -58,9 +62,25 @@ public class SobreNosotrosFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_sobre_nosotros, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_sobre_nosotros, container, false);
+
+        videoView = view.findViewById(R.id.videoView);
+
+        // Especifica la ruta del video
+        String videoPath = "android.resource://" + getActivity().getPackageName() + "/" + R.raw.video1;
+
+        // Configura el Uri para el video
+        Uri uri = Uri.parse(videoPath);
+
+        // Configura un MediaController para el VideoView
+        MediaController mediaController = new MediaController(getActivity());
+        mediaController.setAnchorView(videoView);
+
+        // Asigna el Uri al VideoView y establece el MediaController
+        videoView.setVideoURI(uri);
+        videoView.setMediaController(mediaController);
+
+        return view;
     }
 }
