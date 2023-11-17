@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <item
+        android:title="">
+
+        <menu>
+            <item
+                android:id="@+id/nav_Inicio"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:title="Inicio" />
+            <item
+                android:id="@+id/nav_Productos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:title="Productos" />
+            <item
+                android:id="@+id/nav_Buscar_Productos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:title="Buscar Productos" />
+            <item
+                android:id="@+id/nav_Compras"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:title="Ver Compras" />
+            <item
+                android:id="@+id/nav_sucursales"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:title="Nuetras Sucursales" />
+            <item
+                android:id="@+id/nav_nosotros"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:title="Sobre Nosotros" />
+        </menu>
+    </item>
+</menu>
