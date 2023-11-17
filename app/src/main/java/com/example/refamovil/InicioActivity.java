@@ -79,9 +79,16 @@ public class InicioActivity extends AppCompatActivity implements NavigationView.
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new BuscarProductosFragment()).commit();
          }else if (item.getItemId() == R.id.nav_Compras) {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new VerComprasFragment()).commit();
-     }else if (item.getItemId() == R.id.nav_sucursales) {
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SucursalesFragment()).commit();
-    }else if (item.getItemId() == R.id.nav_nosotros) {
+        } else if (item.getItemId() == R.id.nav_sucursales) {
+            Intent intent = new Intent(getApplicationContext(), fragment_nuestras_sucursales.class);
+            startActivity(intent);
+        /*
+        } else if (item.getItemId() == R.id.nav_sucursales) {
+            Intent intent = new Intent(getApplicationContext(), fragment_nuestras_sucursales.class);
+            startActivity(intent);
+        }
+        */
+        }else if (item.getItemId() == R.id.nav_nosotros) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SobreNosotrosFragment()).commit();
         }
         drawerLayout.closeDrawer(GravityCompat.START);
