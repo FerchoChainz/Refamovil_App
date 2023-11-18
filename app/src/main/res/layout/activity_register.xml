@@ -119,7 +119,7 @@
         app:srcCompat="@mipmap/logo" />
 
     <Button
-        android:id="@+id/btnEntrar"
+        android:id="@+id/btnComprar"
         android:layout_width="337dp"
         android:layout_height="54dp"
         android:layout_marginTop="635dp"

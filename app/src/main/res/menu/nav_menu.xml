@@ -28,10 +28,15 @@
                 android:layout_height="wrap_content"
                 android:title="Ver Compras" />
             <item
+                android:id="@+id/nav_carrito"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:title="Carrito" />
+            <item
                 android:id="@+id/nav_sucursales"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:title="Nuetras Sucursales" />
+                android:title="Nuestras Sucursales" />
             <item
                 android:id="@+id/nav_nosotros"
                 android:layout_width="wrap_content"
