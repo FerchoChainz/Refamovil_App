@@ -3,11 +3,9 @@ package com.example.refamovil;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -21,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
         registrarCuenta = findViewById(R.id.jlbNewAccount);
 
-        entrar = findViewById(R.id.btnEntrar);
+        entrar = findViewById(R.id.btnComprar);
 
         entrar.setOnClickListener(new View.OnClickListener() {
             @Override
