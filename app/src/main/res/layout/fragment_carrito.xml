@@ -31,12 +31,13 @@
             android:layout_marginStart="78dp"
             android:layout_marginEnd="78dp"
             android:layout_marginBottom="4dp"
-            android:fontFamily="@font/merriweatherregular"
+            android:fontFamily="@font/merriweatherbold"
             android:text="Mis Productos"
             android:textAlignment="center"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/scrollView2"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
@@ -54,7 +55,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView">
 
             <TextView
-                android:id="@+id/txtcuadro1"
+                android:id="@+id/cardPedidos"
                 android:layout_width="350dp"
                 android:layout_height="300dp"
                 android:background="@drawable/rounded_background" />

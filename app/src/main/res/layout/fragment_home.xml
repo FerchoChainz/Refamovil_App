@@ -243,7 +243,7 @@
 
 
     <TextView
-        android:id="@+id/txtcuadro1"
+        android:id="@+id/cardPedidos"
         android:layout_width="373dp"
         android:layout_height="128dp"
         android:layout_marginTop="220dp"
@@ -262,11 +262,11 @@
         android:text="Quaker State"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/txtcuadro1"
-        app:layout_constraintEnd_toEndOf="@+id/txtcuadro1"
+        app:layout_constraintBottom_toBottomOf="@+id/cardPedidos"
+        app:layout_constraintEnd_toEndOf="@+id/cardPedidos"
         app:layout_constraintHorizontal_bias="0.02"
-        app:layout_constraintStart_toStartOf="@+id/txtcuadro1"
-        app:layout_constraintTop_toTopOf="@+id/txtcuadro1"
+        app:layout_constraintStart_toStartOf="@+id/cardPedidos"
+        app:layout_constraintTop_toTopOf="@+id/cardPedidos"
         app:layout_constraintVertical_bias="0.913" />
 
     <TextView
@@ -278,11 +278,11 @@
         android:text="Mobil1"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/txtcuadro1"
-        app:layout_constraintEnd_toEndOf="@+id/txtcuadro1"
+        app:layout_constraintBottom_toBottomOf="@+id/cardPedidos"
+        app:layout_constraintEnd_toEndOf="@+id/cardPedidos"
         app:layout_constraintHorizontal_bias="0.02"
-        app:layout_constraintStart_toStartOf="@+id/txtcuadro1"
-        app:layout_constraintTop_toTopOf="@+id/txtcuadro1"
+        app:layout_constraintStart_toStartOf="@+id/cardPedidos"
+        app:layout_constraintTop_toTopOf="@+id/cardPedidos"
         app:layout_constraintVertical_bias="0.489" />
 
     <TextView
@@ -294,11 +294,11 @@
         android:text="Castrol"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/txtcuadro1"
-        app:layout_constraintEnd_toEndOf="@+id/txtcuadro1"
+        app:layout_constraintBottom_toBottomOf="@+id/cardPedidos"
+        app:layout_constraintEnd_toEndOf="@+id/cardPedidos"
         app:layout_constraintHorizontal_bias="0.008"
-        app:layout_constraintStart_toStartOf="@+id/txtcuadro1"
-        app:layout_constraintTop_toTopOf="@+id/txtcuadro1"
+        app:layout_constraintStart_toStartOf="@+id/cardPedidos"
+        app:layout_constraintTop_toTopOf="@+id/cardPedidos"
         app:layout_constraintVertical_bias="0.065" />
 
     <TextView
@@ -310,11 +310,11 @@
         android:text="Valvonie"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/txtcuadro1"
-        app:layout_constraintEnd_toEndOf="@+id/txtcuadro1"
+        app:layout_constraintBottom_toBottomOf="@+id/cardPedidos"
+        app:layout_constraintEnd_toEndOf="@+id/cardPedidos"
         app:layout_constraintHorizontal_bias="0.728"
-        app:layout_constraintStart_toStartOf="@+id/txtcuadro1"
-        app:layout_constraintTop_toTopOf="@+id/txtcuadro1"
+        app:layout_constraintStart_toStartOf="@+id/cardPedidos"
+        app:layout_constraintTop_toTopOf="@+id/cardPedidos"
         app:layout_constraintVertical_bias="0.065" />
 
     <TextView
@@ -326,11 +326,11 @@
         android:text="Pennzoil"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/txtcuadro1"
-        app:layout_constraintEnd_toEndOf="@+id/txtcuadro1"
+        app:layout_constraintBottom_toBottomOf="@+id/cardPedidos"
+        app:layout_constraintEnd_toEndOf="@+id/cardPedidos"
         app:layout_constraintHorizontal_bias="0.728"
-        app:layout_constraintStart_toStartOf="@+id/txtcuadro1"
-        app:layout_constraintTop_toTopOf="@+id/txtcuadro1"
+        app:layout_constraintStart_toStartOf="@+id/cardPedidos"
+        app:layout_constraintTop_toTopOf="@+id/cardPedidos"
         app:layout_constraintVertical_bias="0.489" />
 
     <TextView
@@ -342,11 +342,11 @@
         android:text="LTH"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/txtcuadro1"
-        app:layout_constraintEnd_toEndOf="@+id/txtcuadro1"
+        app:layout_constraintBottom_toBottomOf="@+id/cardPedidos"
+        app:layout_constraintEnd_toEndOf="@+id/cardPedidos"
         app:layout_constraintHorizontal_bias="0.728"
-        app:layout_constraintStart_toStartOf="@+id/txtcuadro1"
-        app:layout_constraintTop_toTopOf="@+id/txtcuadro1"
+        app:layout_constraintStart_toStartOf="@+id/cardPedidos"
+        app:layout_constraintTop_toTopOf="@+id/cardPedidos"
         app:layout_constraintVertical_bias="0.836" />
 
     <TextView
@@ -359,10 +359,10 @@
         android:text="Aceites"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/txtcuadro1"
-        app:layout_constraintEnd_toEndOf="@+id/txtcuadro1"
+        app:layout_constraintBottom_toBottomOf="@+id/cardPedidos"
+        app:layout_constraintEnd_toEndOf="@+id/cardPedidos"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/txtcuadro1" />
+        app:layout_constraintStart_toStartOf="@+id/cardPedidos" />
 
 
     <ImageView
@@ -371,10 +371,10 @@
         android:layout_height="43dp"
         android:layout_marginBottom="112dp"
         android:src="@drawable/aceite"
-        app:layout_constraintBottom_toBottomOf="@+id/txtcuadro1"
-        app:layout_constraintEnd_toEndOf="@+id/txtcuadro1"
+        app:layout_constraintBottom_toBottomOf="@+id/cardPedidos"
+        app:layout_constraintEnd_toEndOf="@+id/cardPedidos"
         app:layout_constraintHorizontal_bias="0.405"
-        app:layout_constraintStart_toStartOf="@+id/txtcuadro1" />
+        app:layout_constraintStart_toStartOf="@+id/cardPedidos" />
 
     <ImageView
         android:id="@+id/imageView4"

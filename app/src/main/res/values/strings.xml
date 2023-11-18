@@ -21,5 +21,7 @@
     <string name="title_activity_fragment_nuestras_sucursales">fragment_nuestras_sucursales</string>
 
     <string name="logout">Logout</string>
+    <string name="miscompras">Mis Compras</string>
+    <string name="footerCompras">¡Gracias por comprar con nosotros!</string>
 
 </resources>
