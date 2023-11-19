@@ -6,9 +6,43 @@
     tools:context=".fragments.SucursalesFragment">
 
     <!-- TODO: Update blank fragment layout -->
+
     <TextView
+        android:id="@+id/txtUbicacion"
+        android:layout_width="180dp"
+        android:layout_height="44dp"
+        android:layout_marginBottom="0dp"
+        android:background="@drawable/rounded_background2"
+        android:fontFamily="@font/merriweatherregular"
+        android:text="Ubicacion"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/txtcuadro_ubicacion"
+        android:layout_width="408dp"
+        android:layout_height="111dp"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/rounded_background"
+        android:text="¡La solución a tus problemas automotrices está a la vuelta de la esquina! Conoce nuestra refaccionaria en la siguiente ubicación."
+        android:textColor="#FBFBFB"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+    </LinearLayout>
+
+    <!-- Desarrollo para aplicaciones móviles II -->
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        />
+
 
 </FrameLayout>
