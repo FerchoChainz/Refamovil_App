@@ -124,7 +124,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.853"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnEntrar" />
+        app:layout_constraintTop_toBottomOf="@+id/btnComprar" />
 
     <TextView
         android:id="@+id/jlbAccount"
@@ -138,10 +138,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.134"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnEntrar" />
+        app:layout_constraintTop_toBottomOf="@+id/btnComprar" />
 
     <Button
-        android:id="@+id/btnEntrar"
+        android:id="@+id/btnComprar"
         android:layout_width="337dp"
         android:layout_height="54dp"
         android:layout_marginTop="20dp"

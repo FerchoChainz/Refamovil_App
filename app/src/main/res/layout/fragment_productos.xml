@@ -38,7 +38,7 @@
 
 
     <TextView
-        android:id="@+id/txtcuadro1"
+        android:id="@+id/cardPedidos"
         android:layout_width="373dp"
         android:layout_height="128dp"
         android:layout_marginTop="220dp"
@@ -56,11 +56,11 @@
         android:text="Aceite de carro"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/txtcuadro1"
-        app:layout_constraintEnd_toEndOf="@+id/txtcuadro1"
+        app:layout_constraintBottom_toBottomOf="@+id/cardPedidos"
+        app:layout_constraintEnd_toEndOf="@+id/cardPedidos"
         app:layout_constraintHorizontal_bias="0.32"
-        app:layout_constraintStart_toStartOf="@+id/txtcuadro1"
-        app:layout_constraintTop_toTopOf="@+id/txtcuadro1"
+        app:layout_constraintStart_toStartOf="@+id/cardPedidos"
+        app:layout_constraintTop_toTopOf="@+id/cardPedidos"
         app:layout_constraintVertical_bias="0.011" />
 
     <TextView
@@ -72,11 +72,11 @@
         android:text="$250"
         android:textColor="#F6F6F6"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/txtcuadro1"
-        app:layout_constraintEnd_toEndOf="@+id/txtcuadro1"
+        app:layout_constraintBottom_toBottomOf="@+id/cardPedidos"
+        app:layout_constraintEnd_toEndOf="@+id/cardPedidos"
         app:layout_constraintHorizontal_bias="0.212"
-        app:layout_constraintStart_toStartOf="@+id/txtcuadro1"
-        app:layout_constraintTop_toTopOf="@+id/txtcuadro1"
+        app:layout_constraintStart_toStartOf="@+id/cardPedidos"
+        app:layout_constraintTop_toTopOf="@+id/cardPedidos"
         app:layout_constraintVertical_bias="0.511" />
 
     <TextView
@@ -88,11 +88,11 @@
         android:text="#21FGL23K"
         android:textColor="#FDFCFC"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/txtcuadro1"
-        app:layout_constraintEnd_toEndOf="@+id/txtcuadro1"
+        app:layout_constraintBottom_toBottomOf="@+id/cardPedidos"
+        app:layout_constraintEnd_toEndOf="@+id/cardPedidos"
         app:layout_constraintHorizontal_bias="0.927"
-        app:layout_constraintStart_toStartOf="@+id/txtcuadro1"
-        app:layout_constraintTop_toTopOf="@+id/txtcuadro1"
+        app:layout_constraintStart_toStartOf="@+id/cardPedidos"
+        app:layout_constraintTop_toTopOf="@+id/cardPedidos"
         app:layout_constraintVertical_bias="0.511" />
 
     <ImageView
@@ -101,11 +101,11 @@
         android:layout_height="59dp"
         android:layout_marginTop="10dp"
         android:src="@drawable/aceite"
-        app:layout_constraintBottom_toBottomOf="@+id/txtcuadro1"
-        app:layout_constraintEnd_toEndOf="@+id/txtcuadro1"
+        app:layout_constraintBottom_toBottomOf="@+id/cardPedidos"
+        app:layout_constraintEnd_toEndOf="@+id/cardPedidos"
         app:layout_constraintHorizontal_bias="0.015"
-        app:layout_constraintStart_toStartOf="@+id/txtcuadro1"
-        app:layout_constraintTop_toTopOf="@+id/txtcuadro1"
+        app:layout_constraintStart_toStartOf="@+id/cardPedidos"
+        app:layout_constraintTop_toTopOf="@+id/cardPedidos"
         app:layout_constraintVertical_bias="0.288" />
 
 

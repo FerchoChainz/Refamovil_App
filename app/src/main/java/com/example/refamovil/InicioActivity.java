@@ -25,6 +25,7 @@ import com.example.refamovil.fragments.ProductosFragment;
 import com.example.refamovil.fragments.SobreNosotrosFragment;
 import com.example.refamovil.fragments.SucursalesFragment;
 import com.example.refamovil.fragments.VerComprasFragment;
+import com.example.refamovil.fragments.fragment_carrito;
 import com.google.android.material.navigation.NavigationView;
 
 public class InicioActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -57,10 +58,6 @@ public class InicioActivity extends AppCompatActivity implements NavigationView.
 
     @Override
 
-    public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-        getMenuInflater().inflate(R.menu.overflow_menu, menu);
-    }
-
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.overflow, menu);
@@ -92,7 +89,9 @@ public class InicioActivity extends AppCompatActivity implements NavigationView.
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new BuscarProductosFragment()).commit();
          }else if (item.getItemId() == R.id.nav_Compras) {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new VerComprasFragment()).commit();
-        } else if (item.getItemId() == R.id.nav_sucursales) {
+        } else if (item.getItemId() == R.id.nav_carrito) {
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new fragment_carrito()).commit();
+        }else if (item.getItemId() == R.id.nav_sucursales) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SucursalesFragment()).commit();
         }else if (item.getItemId() == R.id.nav_nosotros) {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SobreNosotrosFragment()).commit();
