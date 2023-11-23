@@ -3,12 +3,20 @@ package com.example.refamovil.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.refamovil.R;
+import com.example.refamovil.adapters.ListAdapter;
+import com.example.refamovil.adapters.ListElement;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +24,7 @@ import com.example.refamovil.R;
  * create an instance of this fragment.
  */
 public class BuscarProductosFragment extends Fragment {
+    List<ListElement> elements;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -56,6 +65,30 @@ public class BuscarProductosFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
+
+    @Override
+    public void onViewCreated( View view,  Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        init(); // Llama a init() después de que la vista ha sido creada
+    }
+
+    public void init() {
+        elements = new ArrayList<>();
+        elements.add(new ListElement("Aceite de tiempos", "$250", "#15SFDF5"));
+
+
+        ListAdapter listAdapter = new ListAdapter(elements, getContext());
+        RecyclerView recyclerView = getView().findViewById(R.id.ListaProductos);
+
+        if (recyclerView != null) {
+            recyclerView.setHasFixedSize(true);
+            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+            recyclerView.setAdapter(listAdapter);
+        } else {
+            Log.e("TAG", "RecyclerView is null");
+        }
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

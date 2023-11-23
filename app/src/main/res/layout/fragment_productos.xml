@@ -7,13 +7,33 @@
     tools:context=".fragments.ProductosFragment">
 
     <!-- TODO: Update blank fragment layout -->
+
+
+    <ScrollView
+        android:id="@+id/scrollView3"
+        android:layout_width="407dp"
+        android:layout_height="420dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spTipo">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </ScrollView>
+
     <TextView
-        android:id="@+id/txtProductos"
+        android:id="@+id/txtBienvenida"
         android:layout_width="373dp"
         android:layout_height="69dp"
-        android:layout_marginStart="35dp"
-        android:layout_marginTop="31dp"
-        android:layout_marginEnd="26dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="19dp"
         android:background="@drawable/rounded_background2"
         android:fontFamily="@font/merriweatherregular"
         android:text="¡Nuestros Productos!"
@@ -29,230 +49,12 @@
         android:id="@+id/spTipo"
         android:layout_width="392dp"
         android:layout_height="71dp"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="21dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView3"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtProductos" />
-
-
-    <TextView
-        android:id="@+id/cardPedidos"
-        android:layout_width="373dp"
-        android:layout_height="128dp"
-        android:layout_marginTop="220dp"
-        android:background="@drawable/rounded_background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/txtAceite1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/merriweatherregular"
-        android:text="Aceite de carro"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/cardPedidos"
-        app:layout_constraintEnd_toEndOf="@+id/cardPedidos"
-        app:layout_constraintHorizontal_bias="0.32"
-        app:layout_constraintStart_toStartOf="@+id/cardPedidos"
-        app:layout_constraintTop_toTopOf="@+id/cardPedidos"
-        app:layout_constraintVertical_bias="0.011" />
-
-    <TextView
-        android:id="@+id/txtPrecio1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/merriweatherregular"
-        android:text="$250"
-        android:textColor="#F6F6F6"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/cardPedidos"
-        app:layout_constraintEnd_toEndOf="@+id/cardPedidos"
-        app:layout_constraintHorizontal_bias="0.212"
-        app:layout_constraintStart_toStartOf="@+id/cardPedidos"
-        app:layout_constraintTop_toTopOf="@+id/cardPedidos"
-        app:layout_constraintVertical_bias="0.511" />
-
-    <TextView
-        android:id="@+id/txtCodigo1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/merriweatherregular"
-        android:text="#21FGL23K"
-        android:textColor="#FDFCFC"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/cardPedidos"
-        app:layout_constraintEnd_toEndOf="@+id/cardPedidos"
-        app:layout_constraintHorizontal_bias="0.927"
-        app:layout_constraintStart_toStartOf="@+id/cardPedidos"
-        app:layout_constraintTop_toTopOf="@+id/cardPedidos"
-        app:layout_constraintVertical_bias="0.511" />
-
-    <ImageView
-        android:id="@+id/img1"
-        android:layout_width="50dp"
-        android:layout_height="59dp"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/aceite"
-        app:layout_constraintBottom_toBottomOf="@+id/cardPedidos"
-        app:layout_constraintEnd_toEndOf="@+id/cardPedidos"
-        app:layout_constraintHorizontal_bias="0.015"
-        app:layout_constraintStart_toStartOf="@+id/cardPedidos"
-        app:layout_constraintTop_toTopOf="@+id/cardPedidos"
-        app:layout_constraintVertical_bias="0.288" />
-
-
-    <TextView
-        android:id="@+id/txtcuadro2"
-        android:layout_width="373dp"
-        android:layout_height="128dp"
-        android:layout_marginTop="388dp"
-        android:background="@drawable/rounded_background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <TextView
-        android:id="@+id/txtAceite2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/merriweatherregular"
-        android:text="Aceite de moto"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/txtcuadro2"
-        app:layout_constraintEnd_toEndOf="@+id/txtcuadro2"
-        app:layout_constraintHorizontal_bias="0.32"
-        app:layout_constraintStart_toStartOf="@+id/txtcuadro2"
-        app:layout_constraintTop_toTopOf="@+id/txtcuadro2"
-        app:layout_constraintVertical_bias="0.058" />
-
-    <TextView
-        android:id="@+id/txtPrecio2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/merriweatherregular"
-        android:text="$400"
-        android:textColor="#F6F6F6"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/txtcuadro2"
-        app:layout_constraintEnd_toEndOf="@+id/txtcuadro2"
-        app:layout_constraintHorizontal_bias="0.212"
-        app:layout_constraintStart_toStartOf="@+id/txtcuadro2"
-        app:layout_constraintTop_toTopOf="@+id/txtcuadro2"
-        app:layout_constraintVertical_bias="0.511" />
-
-    <TextView
-        android:id="@+id/txtCodigo2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/merriweatherregular"
-        android:text="#15SFT7F5"
-        android:textColor="#FDFCFC"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/txtcuadro2"
-        app:layout_constraintEnd_toEndOf="@+id/txtcuadro2"
-        app:layout_constraintHorizontal_bias="0.927"
-        app:layout_constraintStart_toStartOf="@+id/txtcuadro2"
-        app:layout_constraintTop_toTopOf="@+id/txtcuadro2"
-        app:layout_constraintVertical_bias="0.511" />
-
-    <ImageView
-        android:id="@+id/img2"
-        android:layout_width="50dp"
-        android:layout_height="59dp"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/aceite"
-        app:layout_constraintBottom_toBottomOf="@+id/txtcuadro2"
-        app:layout_constraintEnd_toEndOf="@+id/txtcuadro2"
-        app:layout_constraintHorizontal_bias="0.015"
-        app:layout_constraintStart_toStartOf="@+id/txtcuadro2"
-        app:layout_constraintTop_toTopOf="@+id/txtcuadro2"
-        app:layout_constraintVertical_bias="0.288" />
-
-    <TextView
-        android:id="@+id/txtcuadro3"
-        android:layout_width="373dp"
-        android:layout_height="128dp"
-        android:layout_marginTop="556dp"
-        android:background="@drawable/rounded_background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-
-    <TextView
-        android:id="@+id/txtAceite3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/merriweatherregular"
-        android:text="Aceite de 2 tiempos"
-        android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/txtcuadro3"
-        app:layout_constraintEnd_toEndOf="@+id/txtcuadro3"
-        app:layout_constraintHorizontal_bias="0.422"
-        app:layout_constraintStart_toStartOf="@+id/txtcuadro3"
-        app:layout_constraintTop_toTopOf="@+id/txtcuadro3"
-        app:layout_constraintVertical_bias="0.011" />
-
-    <TextView
-        android:id="@+id/txtPrecio3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/merriweatherregular"
-        android:text="$550"
-        android:textColor="#F6F6F6"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/txtcuadro3"
-        app:layout_constraintEnd_toEndOf="@+id/txtcuadro3"
-        app:layout_constraintHorizontal_bias="0.212"
-        app:layout_constraintStart_toStartOf="@+id/txtcuadro3"
-        app:layout_constraintTop_toTopOf="@+id/txtcuadro3"
-        app:layout_constraintVertical_bias="0.511" />
-
-
-    <TextView
-        android:id="@+id/txtCodigo3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/merriweatherregular"
-        android:text="#18VSFDF5"
-        android:textColor="#FDFCFC"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/txtcuadro3"
-        app:layout_constraintEnd_toEndOf="@+id/txtcuadro3"
-        app:layout_constraintHorizontal_bias="0.927"
-        app:layout_constraintStart_toStartOf="@+id/txtcuadro3"
-        app:layout_constraintTop_toTopOf="@+id/txtcuadro3"
-        app:layout_constraintVertical_bias="0.511" />
-
-
-    <ImageView
-        android:id="@+id/img3"
-        android:layout_width="50dp"
-        android:layout_height="59dp"
-        android:layout_marginTop="10dp"
-        android:src="@drawable/aceite"
-        app:layout_constraintBottom_toBottomOf="@+id/txtcuadro3"
-        app:layout_constraintEnd_toEndOf="@+id/txtcuadro3"
-        app:layout_constraintHorizontal_bias="0.015"
-        app:layout_constraintStart_toStartOf="@+id/txtcuadro3"
-        app:layout_constraintTop_toTopOf="@+id/txtcuadro3"
-        app:layout_constraintVertical_bias="0.288" />
+        app:layout_constraintTop_toBottomOf="@+id/txtBienvenida" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
