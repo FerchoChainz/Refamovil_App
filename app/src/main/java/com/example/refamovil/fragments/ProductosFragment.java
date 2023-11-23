@@ -3,7 +3,10 @@ package com.example.refamovil.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +15,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import com.example.refamovil.R;
+import com.example.refamovil.adapters.ListAdapter;
+import com.example.refamovil.adapters.ListElement;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +27,7 @@ import java.util.List;
  * create an instance of this fragment.
  */
 public class ProductosFragment extends Fragment {
+    List<ListElement> elements;
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -49,6 +55,36 @@ public class ProductosFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
+
+
+    @Override
+    public void onViewCreated( View view,  Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        init(); // Llama a init() después de que la vista ha sido creada
+    }
+
+    public void init() {
+        elements = new ArrayList<>();
+        elements.add(new ListElement("Aceite de carro", "$350", "#21FGL23"));
+        elements.add(new ListElement("Aceite de moto", "$150", "#15SFDF5"));
+        elements.add(new ListElement("Aceite de tiempos", "$250", "#18SFGR3"));
+        elements.add(new ListElement("Aceite de bicicleta", "$550", "#26SDGR1"));
+        elements.add(new ListElement("Aceite de motor", "$350", "#03SHRR9"));
+        elements.add(new ListElement("Aceite de maquinas", "$450", "#14SKBR6"));
+
+
+        ListAdapter listAdapter = new ListAdapter(elements, getContext());
+        RecyclerView recyclerView = getView().findViewById(R.id.list);
+
+        if (recyclerView != null) {
+            recyclerView.setHasFixedSize(true);
+            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+            recyclerView.setAdapter(listAdapter);
+        } else {
+            Log.e("TAG", "RecyclerView is null");
+        }
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

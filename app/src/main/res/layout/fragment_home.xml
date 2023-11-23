@@ -7,10 +7,10 @@
     tools:context=".fragments.HomeFragment">
 
     <TextView
-        android:id="@+id/txtcuadro5"
+        android:id="@+id/cardOfertas"
         android:layout_width="373dp"
         android:layout_height="128dp"
-        android:layout_marginTop="584dp"
+        android:layout_marginTop="460dp"
         android:background="@drawable/rounded_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.421"
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txtAceite23"
+        android:id="@+id/txtDescAmortiguadores"
         android:layout_width="315dp"
         android:layout_height="35dp"
         android:layout_marginTop="10dp"
@@ -26,15 +26,15 @@
         android:text="%25 en amortiguadores"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/txtcuadro5"
-        app:layout_constraintEnd_toEndOf="@+id/txtcuadro5"
+        app:layout_constraintBottom_toBottomOf="@+id/cardOfertas"
+        app:layout_constraintEnd_toEndOf="@+id/cardOfertas"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/txtcuadro5"
-        app:layout_constraintTop_toTopOf="@+id/txtcuadro5"
+        app:layout_constraintStart_toStartOf="@+id/cardOfertas"
+        app:layout_constraintTop_toTopOf="@+id/cardOfertas"
         app:layout_constraintVertical_bias="0.542" />
 
     <TextView
-        android:id="@+id/txtRefacciones2"
+        android:id="@+id/txtOfertas"
         android:layout_width="180dp"
         android:layout_height="44dp"
         android:layout_marginBottom="104dp"
@@ -43,13 +43,13 @@
         android:text="Ofertas"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/txtcuadro5"
-        app:layout_constraintEnd_toEndOf="@+id/txtcuadro5"
+        app:layout_constraintBottom_toBottomOf="@+id/cardOfertas"
+        app:layout_constraintEnd_toEndOf="@+id/cardOfertas"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/txtcuadro5" />
+        app:layout_constraintStart_toStartOf="@+id/cardOfertas" />
 
     <TextView
-        android:id="@+id/txtAceite27"
+        android:id="@+id/txtDescTienda"
         android:layout_width="317dp"
         android:layout_height="32dp"
         android:layout_marginTop="10dp"
@@ -57,15 +57,15 @@
         android:text="%5 en toda la tienda"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/txtcuadro5"
-        app:layout_constraintEnd_toEndOf="@+id/txtcuadro5"
+        app:layout_constraintBottom_toBottomOf="@+id/cardOfertas"
+        app:layout_constraintEnd_toEndOf="@+id/cardOfertas"
         app:layout_constraintHorizontal_bias="0.02"
-        app:layout_constraintStart_toStartOf="@+id/txtcuadro5"
-        app:layout_constraintTop_toTopOf="@+id/txtcuadro5"
+        app:layout_constraintStart_toStartOf="@+id/cardOfertas"
+        app:layout_constraintTop_toTopOf="@+id/cardOfertas"
         app:layout_constraintVertical_bias="0.152" />
 
     <TextView
-        android:id="@+id/txtAceite28"
+        android:id="@+id/txtFocosAmortiguadores"
         android:layout_width="346dp"
         android:layout_height="29dp"
         android:layout_marginTop="10dp"
@@ -73,29 +73,29 @@
         android:text="2x1 en focos y componentes"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/txtcuadro5"
-        app:layout_constraintEnd_toEndOf="@+id/txtcuadro5"
+        app:layout_constraintBottom_toBottomOf="@+id/cardOfertas"
+        app:layout_constraintEnd_toEndOf="@+id/cardOfertas"
         app:layout_constraintHorizontal_bias="0.034"
-        app:layout_constraintStart_toStartOf="@+id/txtcuadro5"
-        app:layout_constraintTop_toTopOf="@+id/txtcuadro5"
+        app:layout_constraintStart_toStartOf="@+id/cardOfertas"
+        app:layout_constraintTop_toTopOf="@+id/cardOfertas"
         app:layout_constraintVertical_bias="0.909" />
 
     <ImageView
-        android:id="@+id/img5"
+        android:id="@+id/imgOfertas"
         android:layout_width="38dp"
         android:layout_height="43dp"
         android:layout_marginBottom="104dp"
         android:src="@drawable/descuento"
-        app:layout_constraintBottom_toBottomOf="@+id/txtcuadro5"
-        app:layout_constraintEnd_toEndOf="@+id/txtcuadro5"
+        app:layout_constraintBottom_toBottomOf="@+id/cardOfertas"
+        app:layout_constraintEnd_toEndOf="@+id/cardOfertas"
         app:layout_constraintHorizontal_bias="0.414"
-        app:layout_constraintStart_toStartOf="@+id/txtcuadro5" />
+        app:layout_constraintStart_toStartOf="@+id/cardOfertas" />
 
     <TextView
-        android:id="@+id/txtcuadro4"
+        android:id="@+id/cardRefacciones"
         android:layout_width="373dp"
         android:layout_height="128dp"
-        android:layout_marginTop="392dp"
+        android:layout_marginTop="300dp"
         android:background="@drawable/rounded_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.421"
@@ -112,13 +112,13 @@
         android:text="Refacciones"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/txtcuadro4"
-        app:layout_constraintEnd_toEndOf="@+id/txtcuadro4"
+        app:layout_constraintBottom_toBottomOf="@+id/cardRefacciones"
+        app:layout_constraintEnd_toEndOf="@+id/cardRefacciones"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/txtcuadro4" />
+        app:layout_constraintStart_toStartOf="@+id/cardRefacciones" />
 
     <TextView
-        android:id="@+id/txtAceite22"
+        android:id="@+id/txtFrenos"
         android:layout_width="126dp"
         android:layout_height="26dp"
         android:layout_marginTop="10dp"
@@ -126,42 +126,42 @@
         android:text="Frenos"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/txtcuadro4"
-        app:layout_constraintEnd_toEndOf="@+id/txtcuadro4"
+        app:layout_constraintBottom_toBottomOf="@+id/cardRefacciones"
+        app:layout_constraintEnd_toEndOf="@+id/cardRefacciones"
         app:layout_constraintHorizontal_bias="0.761"
-        app:layout_constraintStart_toStartOf="@+id/txtcuadro4"
-        app:layout_constraintTop_toTopOf="@+id/txtcuadro4"
+        app:layout_constraintStart_toStartOf="@+id/cardRefacciones"
+        app:layout_constraintTop_toTopOf="@+id/cardRefacciones"
         app:layout_constraintVertical_bias="0.119" />
 
     <TextView
-        android:id="@+id/txtAceite16"
-        android:layout_width="154dp"
-        android:layout_height="31dp"
+        android:id="@+id/txtSuspenciones"
+        android:layout_width="164dp"
+        android:layout_height="32dp"
         android:layout_marginTop="10dp"
         android:fontFamily="@font/merriweatherregular"
         android:text="Suspenciones"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/txtcuadro4"
-        app:layout_constraintEnd_toEndOf="@+id/txtcuadro4"
-        app:layout_constraintHorizontal_bias="0.858"
-        app:layout_constraintStart_toStartOf="@+id/txtcuadro4"
-        app:layout_constraintTop_toTopOf="@+id/txtcuadro4"
-        app:layout_constraintVertical_bias="0.942" />
+        app:layout_constraintBottom_toBottomOf="@+id/cardRefacciones"
+        app:layout_constraintEnd_toEndOf="@+id/cardRefacciones"
+        app:layout_constraintHorizontal_bias="0.899"
+        app:layout_constraintStart_toStartOf="@+id/cardRefacciones"
+        app:layout_constraintTop_toTopOf="@+id/cardRefacciones"
+        app:layout_constraintVertical_bias="0.918" />
 
     <ImageView
-        android:id="@+id/img4"
+        android:id="@+id/imgRefacciones"
         android:layout_width="38dp"
         android:layout_height="43dp"
         android:layout_marginBottom="100dp"
         android:src="@drawable/herramientas"
-        app:layout_constraintBottom_toBottomOf="@+id/txtcuadro4"
-        app:layout_constraintEnd_toEndOf="@+id/txtcuadro4"
+        app:layout_constraintBottom_toBottomOf="@+id/cardRefacciones"
+        app:layout_constraintEnd_toEndOf="@+id/cardRefacciones"
         app:layout_constraintHorizontal_bias="0.423"
-        app:layout_constraintStart_toStartOf="@+id/txtcuadro4" />
+        app:layout_constraintStart_toStartOf="@+id/cardRefacciones" />
 
     <TextView
-        android:id="@+id/txtAceite19"
+        android:id="@+id/txtComponentes"
         android:layout_width="164dp"
         android:layout_height="33dp"
         android:layout_marginTop="10dp"
@@ -169,15 +169,15 @@
         android:text="Componentes"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/txtcuadro4"
-        app:layout_constraintEnd_toEndOf="@+id/txtcuadro4"
+        app:layout_constraintBottom_toBottomOf="@+id/cardRefacciones"
+        app:layout_constraintEnd_toEndOf="@+id/cardRefacciones"
         app:layout_constraintHorizontal_bias="0.899"
-        app:layout_constraintStart_toStartOf="@+id/txtcuadro4"
-        app:layout_constraintTop_toTopOf="@+id/txtcuadro4"
+        app:layout_constraintStart_toStartOf="@+id/cardRefacciones"
+        app:layout_constraintTop_toTopOf="@+id/cardRefacciones"
         app:layout_constraintVertical_bias="0.576" />
 
     <TextView
-        android:id="@+id/txtAceite21"
+        android:id="@+id/txtBaterias"
         android:layout_width="126dp"
         android:layout_height="26dp"
         android:layout_marginTop="10dp"
@@ -185,15 +185,15 @@
         android:text="Baterias"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/txtcuadro4"
-        app:layout_constraintEnd_toEndOf="@+id/txtcuadro4"
+        app:layout_constraintBottom_toBottomOf="@+id/cardRefacciones"
+        app:layout_constraintEnd_toEndOf="@+id/cardRefacciones"
         app:layout_constraintHorizontal_bias="0.052"
-        app:layout_constraintStart_toStartOf="@+id/txtcuadro4"
-        app:layout_constraintTop_toTopOf="@+id/txtcuadro4"
+        app:layout_constraintStart_toStartOf="@+id/cardRefacciones"
+        app:layout_constraintTop_toTopOf="@+id/cardRefacciones"
         app:layout_constraintVertical_bias="0.119" />
 
     <TextView
-        android:id="@+id/txtAceite18"
+        android:id="@+id/txtAmortiguadores"
         android:layout_width="177dp"
         android:layout_height="39dp"
         android:layout_marginTop="10dp"
@@ -201,15 +201,15 @@
         android:text="Amortiguador"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/txtcuadro4"
-        app:layout_constraintEnd_toEndOf="@+id/txtcuadro4"
+        app:layout_constraintBottom_toBottomOf="@+id/cardRefacciones"
+        app:layout_constraintEnd_toEndOf="@+id/cardRefacciones"
         app:layout_constraintHorizontal_bias="0.045"
-        app:layout_constraintStart_toStartOf="@+id/txtcuadro4"
-        app:layout_constraintTop_toTopOf="@+id/txtcuadro4"
+        app:layout_constraintStart_toStartOf="@+id/cardRefacciones"
+        app:layout_constraintTop_toTopOf="@+id/cardRefacciones"
         app:layout_constraintVertical_bias="1.0" />
 
     <TextView
-        android:id="@+id/txtAceite17"
+        android:id="@+id/txtFocos"
         android:layout_width="126dp"
         android:layout_height="26dp"
         android:layout_marginTop="10dp"
@@ -217,15 +217,15 @@
         android:text="Focos"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="@+id/txtcuadro4"
-        app:layout_constraintEnd_toEndOf="@+id/txtcuadro4"
+        app:layout_constraintBottom_toBottomOf="@+id/cardRefacciones"
+        app:layout_constraintEnd_toEndOf="@+id/cardRefacciones"
         app:layout_constraintHorizontal_bias="0.052"
-        app:layout_constraintStart_toStartOf="@+id/txtcuadro4"
-        app:layout_constraintTop_toTopOf="@+id/txtcuadro4"
+        app:layout_constraintStart_toStartOf="@+id/cardRefacciones"
+        app:layout_constraintTop_toTopOf="@+id/cardRefacciones"
         app:layout_constraintVertical_bias="0.532" />
 
     <TextView
-        android:id="@+id/txtProductos"
+        android:id="@+id/txtBienvenida"
         android:layout_width="373dp"
         android:layout_height="69dp"
         android:layout_marginStart="35dp"
@@ -246,7 +246,7 @@
         android:id="@+id/cardPedidos"
         android:layout_width="373dp"
         android:layout_height="128dp"
-        android:layout_marginTop="220dp"
+        android:layout_marginTop="140dp"
         android:background="@drawable/rounded_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -254,7 +254,7 @@
 
 
     <TextView
-        android:id="@+id/txtAceite1"
+        android:id="@+id/txtQuaker"
         android:layout_width="146dp"
         android:layout_height="34dp"
         android:layout_marginTop="10dp"
@@ -270,7 +270,7 @@
         app:layout_constraintVertical_bias="0.913" />
 
     <TextView
-        android:id="@+id/txtAceite5"
+        android:id="@+id/txtMobil1"
         android:layout_width="126dp"
         android:layout_height="26dp"
         android:layout_marginTop="10dp"
@@ -286,7 +286,7 @@
         app:layout_constraintVertical_bias="0.489" />
 
     <TextView
-        android:id="@+id/txtAceite4"
+        android:id="@+id/txtCastrol"
         android:layout_width="126dp"
         android:layout_height="26dp"
         android:layout_marginTop="10dp"
@@ -302,7 +302,7 @@
         app:layout_constraintVertical_bias="0.065" />
 
     <TextView
-        android:id="@+id/txtAceite6"
+        android:id="@+id/txtValvonie"
         android:layout_width="126dp"
         android:layout_height="26dp"
         android:layout_marginTop="10dp"
@@ -318,7 +318,7 @@
         app:layout_constraintVertical_bias="0.065" />
 
     <TextView
-        android:id="@+id/txtAceite7"
+        android:id="@+id/txtPennzoil"
         android:layout_width="126dp"
         android:layout_height="26dp"
         android:layout_marginTop="10dp"
@@ -334,7 +334,7 @@
         app:layout_constraintVertical_bias="0.489" />
 
     <TextView
-        android:id="@+id/txtAceite8"
+        android:id="@+id/txtLTH"
         android:layout_width="126dp"
         android:layout_height="26dp"
         android:layout_marginTop="10dp"
@@ -350,7 +350,7 @@
         app:layout_constraintVertical_bias="0.836" />
 
     <TextView
-        android:id="@+id/txtAceite"
+        android:id="@+id/txtAceites"
         android:layout_width="180dp"
         android:layout_height="44dp"
         android:layout_marginBottom="112dp"
@@ -366,7 +366,7 @@
 
 
     <ImageView
-        android:id="@+id/img1"
+        android:id="@+id/imgAceites"
         android:layout_width="38dp"
         android:layout_height="43dp"
         android:layout_marginBottom="112dp"
@@ -377,13 +377,13 @@
         app:layout_constraintStart_toStartOf="@+id/cardPedidos" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/imgSaludo"
         android:layout_width="123dp"
         android:layout_height="60dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="15dp"
         android:src="@drawable/mano2"
-        app:layout_constraintEnd_toStartOf="@+id/txtProductos"
+        app:layout_constraintEnd_toStartOf="@+id/txtBienvenida"
         app:layout_constraintHorizontal_bias="0.14"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
