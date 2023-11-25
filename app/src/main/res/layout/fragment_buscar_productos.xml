@@ -16,15 +16,16 @@
             android:layout_width="396dp"
             android:layout_height="68dp"
             android:layout_marginStart="7dp"
-            android:layout_marginTop="116dp"
+            android:layout_marginTop="220dp"
             android:layout_marginEnd="17dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginBottom="80dp"
             android:fontFamily="@font/merriweatherbold"
             android:text="¡Busca lo que necesitas por medio del codigo de barras!"
             android:textAlignment="center"
             android:textSize="24sp"
             app:layout_constraintBottom_toTopOf="@+id/scrollView4"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,9 +34,10 @@
             android:layout_width="419dp"
             android:layout_height="276dp"
             android:layout_marginEnd="5dp"
-            android:layout_marginBottom="3dp"
-            app:layout_constraintBottom_toTopOf="@+id/imgCamara"
+            android:layout_marginBottom="120dp"
+            app:layout_constraintBottom_toTopOf="@+id/btnCamara"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.307"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtCodigoBarras">
 
@@ -57,17 +59,22 @@
             app:layout_constraintTop_toBottomOf="@+id/scrollView4"
             app:layout_constraintVertical_bias="1.0" />
 
-        <ImageView
-            android:id="@+id/imgCamara"
-            android:layout_width="104dp"
-            android:layout_height="65dp"
-            android:layout_marginBottom="60dp"
-            android:background="@color/white"
-            android:src="@drawable/camara"
-            app:layout_constraintBottom_toBottomOf="@+id/txtCuadroCamara"
-            app:layout_constraintEnd_toEndOf="@+id/txtCuadroCamara"
-            app:layout_constraintHorizontal_bias="0.519"
-            app:layout_constraintStart_toStartOf="@+id/txtCuadroCamara" />
+        <Button
+            android:id="@+id/btnCamara"
+            android:layout_width="140dp"
+            android:layout_height="88dp"
+            android:layout_marginBottom="25dp"
+            android:backgroundTint="@color/white"
+            android:fontFamily="@font/merriweatherregular"
+            android:textSize="20sp"
+            app:icon="@drawable/camara"
+            app:iconSize="90dp"
+            app:iconTint="#000000"
+            app:layout_constraintBottom_toTopOf="@+id/txtCuadroCamara"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/scrollView4" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
