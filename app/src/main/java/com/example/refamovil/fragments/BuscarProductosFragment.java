@@ -1,7 +1,12 @@
 package com.example.refamovil.fragments;
 
+import android.Manifest;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -10,11 +15,16 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageView;
 
 import com.example.refamovil.R;
 import com.example.refamovil.adapters.ListAdapter;
 import com.example.refamovil.adapters.ListElement;
+import com.google.zxing.integration.android.IntentIntegrator;
+import com.google.zxing.integration.android.IntentResult;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +35,7 @@ import java.util.List;
  */
 public class BuscarProductosFragment extends Fragment {
     List<ListElement> elements;
+    ListAdapter listAdapter;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -67,17 +78,69 @@ public class BuscarProductosFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated( View view,  Bundle savedInstanceState) {
+    public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        init(); // Llama a init() después de que la vista ha sido creada
+        init();
+
+        Button button = view.findViewById(R.id.btnCamara);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.CAMERA)
+                        == PackageManager.PERMISSION_GRANTED) {
+                    startBarcodeScanner();
+                } else {
+                    ActivityCompat.requestPermissions(requireActivity(),
+                            new String[]{Manifest.permission.CAMERA}, 1);
+                }
+            }
+        });
+    }
+
+
+    private void startBarcodeScanner() {
+        //biblioteca ZXing para iniciar la cámara y escanear
+        IntentIntegrator integrator = IntentIntegrator.forSupportFragment(this);
+        integrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
+        integrator.setPrompt("Escanea un código de barras");
+        integrator.setCameraId(0);  // Use la cámara trasera
+        integrator.initiateScan();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        if (result != null) {
+            if (result.getContents() != null) {
+                String barcode = result.getContents();
+
+                // Genera un precio aleatorio con 2 decimales
+                double randomPrice = Math.random() * 100;
+                String formattedPrice = formatPrice(randomPrice);
+
+                // Actualiza la lista de elementos con la nueva información del código de barras
+                elements.add(new ListElement("Aceites", formattedPrice, barcode));
+
+                // Notifica al adaptador sobre el cambio en los datos
+                listAdapter.notifyDataSetChanged();
+            } else {
+            }
+        }
+    }
+
+    private String formatPrice(double price) {
+        //limitar a 2 decimales
+        DecimalFormat decimalFormat = new DecimalFormat("0.00");
+        return "$" + decimalFormat.format(price);
     }
 
     public void init() {
         elements = new ArrayList<>();
-        elements.add(new ListElement("Aceite de tiempos", "$250", "#15SFDF5"));
+        //elements.add(new ListElement("Aceite de tiempos", "$250", "#15SFDF5"));
 
-
-        ListAdapter listAdapter = new ListAdapter(elements, getContext());
+        listAdapter = new ListAdapter(elements, getContext());
         RecyclerView recyclerView = getView().findViewById(R.id.ListaProductos);
 
         if (recyclerView != null) {
@@ -88,7 +151,6 @@ public class BuscarProductosFragment extends Fragment {
             Log.e("TAG", "RecyclerView is null");
         }
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
