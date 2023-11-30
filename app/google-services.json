@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "59935847601",
+    "project_id": "refamovilapp",
+    "storage_bucket": "refamovilapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:59935847601:android:46198707cd8a353aa71e90",
+        "android_client_info": {
+          "package_name": "com.example.refamovil"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDz8mHhwiMPxnVtqoXJlX_1hvFSryKgPg0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
