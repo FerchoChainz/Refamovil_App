@@ -105,7 +105,7 @@
         android:layout_marginTop="500dp"
         android:background="#d9d9d9"
         android:ems="10"
-        android:inputType="text"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.462"
         app:layout_constraintStart_toStartOf="parent"
@@ -124,7 +124,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.853"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnComprar" />
+        app:layout_constraintTop_toBottomOf="@+id/btnRegistrar" />
 
     <TextView
         android:id="@+id/jlbAccount"
@@ -138,10 +138,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.134"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnComprar" />
+        app:layout_constraintTop_toBottomOf="@+id/btnRegistrar" />
 
     <Button
-        android:id="@+id/btnComprar"
+        android:id="@+id/btnRegistrar"
         android:layout_width="337dp"
         android:layout_height="54dp"
         android:layout_marginTop="20dp"
