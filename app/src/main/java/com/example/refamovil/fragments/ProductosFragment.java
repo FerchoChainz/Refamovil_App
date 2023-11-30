@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import com.example.refamovil.R;
 import com.example.refamovil.adapters.ListAdapter;
@@ -28,6 +29,7 @@ import java.util.List;
  */
 public class ProductosFragment extends Fragment {
     List<ListElement> elements;
+    ListAdapter listAdapter;
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -65,15 +67,14 @@ public class ProductosFragment extends Fragment {
 
     public void init() {
         elements = new ArrayList<>();
-        elements.add(new ListElement("Aceite de carro", "$350", "#21FGL23"));
-        elements.add(new ListElement("Aceite de moto", "$150", "#15SFDF5"));
-        elements.add(new ListElement("Aceite de tiempos", "$250", "#18SFGR3"));
-        elements.add(new ListElement("Aceite de bicicleta", "$550", "#26SDGR1"));
-        elements.add(new ListElement("Aceite de motor", "$350", "#03SHRR9"));
-        elements.add(new ListElement("Aceite de maquinas", "$450", "#14SKBR6"));
+        setAllProducts();
 
-
-        ListAdapter listAdapter = new ListAdapter(elements, getContext());
+         listAdapter = new ListAdapter(elements, getContext(), new ListAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(ListElement item) {
+                showMessageOnClick(item);
+            }
+        });
         RecyclerView recyclerView = getView().findViewById(R.id.list);
 
         if (recyclerView != null) {
@@ -83,6 +84,39 @@ public class ProductosFragment extends Fragment {
         } else {
             Log.e("TAG", "RecyclerView is null");
         }
+    }
+
+    public void showMessageOnClick(ListElement item){
+        Toast.makeText(getContext(), "Presionaste", Toast.LENGTH_SHORT).show();
+    }
+
+    public void setAllProducts() {
+        elements.clear();
+        elements.add(new ListElement("Aceite de carro", "$350", "#21FGL23"));
+        elements.add(new ListElement("Aceite de moto", "$150", "#15SFDF5"));
+        elements.add(new ListElement("Aceite de tiempos", "$250", "#18SFGR3"));
+        elements.add(new ListElement("Aceite de bicicleta", "$550", "#26SDGR1"));
+        elements.add(new ListElement("Aceite de motor", "$350", "#03SHRR9"));
+        elements.add(new ListElement("Aceite de maquinas", "$450", "#14SKBR6"));
+        elements.add(new ListElement("Autoparte 1", "$100", "#ABC123"));
+        elements.add(new ListElement("Autoparte 2", "$200", "#DEF456"));
+    }
+
+    public void setOnAceites() {
+        elements.clear();
+        elements.add(new ListElement("Aceite de carro", "$350", "#21FGL23"));
+        elements.add(new ListElement("Aceite de moto", "$150", "#15SFDF5"));
+        elements.add(new ListElement("Aceite de tiempos", "$250", "#18SFGR3"));
+        elements.add(new ListElement("Aceite de bicicleta", "$550", "#26SDGR1"));
+        elements.add(new ListElement("Aceite de motor", "$350", "#03SHRR9"));
+        elements.add(new ListElement("Aceite de maquinas", "$450", "#14SKBR6"));
+    }
+
+    public void setOnAutopartes() {
+        elements.clear();
+        elements.add(new ListElement("Autoparte 1", "$100", "#ABC123"));
+        elements.add(new ListElement("Autoparte 2", "$200", "#DEF456"));
+        // Agrega más elementos según sea necesario
     }
 
 
@@ -96,6 +130,7 @@ public class ProductosFragment extends Fragment {
 
         // Crear una lista de opciones para el Spinner
         List<String> opciones = new ArrayList<>();
+        opciones.add("Todos los productos");
         opciones.add("Aceites");
         opciones.add("Autopartes");
 
@@ -103,15 +138,21 @@ public class ProductosFragment extends Fragment {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_spinner_item, opciones);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        // Asignar el adaptador al Spinner
         spinner.setAdapter(adapter);
-
-        // Manejar la selección del Spinner
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String opcionSeleccionada = opciones.get(position);
-                // Realizar acciones con la opción seleccionada
+
+                if (opcionSeleccionada.equals("Aceites")) {
+                    setOnAceites();
+                } else if (opcionSeleccionada.equals("Autopartes")) {
+                    setOnAutopartes();
+                } else {
+                    setAllProducts();
+                }
+
+                listAdapter.notifyDataSetChanged();
             }
 
             @Override
