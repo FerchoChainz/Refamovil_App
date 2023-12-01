@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.refamovil.R;
 import com.example.refamovil.adapters.ListAdapter;
@@ -68,7 +69,14 @@ public class fragment_carrito extends Fragment {
         elements.add(new ListElement("Aceite Para carro", "$150", "#3333"));
         elements.add(new ListElement("Aceite Para carro", "$150", "#3333"));
 
-        ListAdapter listAdapter = new ListAdapter(elements, getContext());
+        ListAdapter listAdapter = new ListAdapter(elements, getContext(), new ListAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(ListElement item) {
+                showMessageOnClick(item);
+            }
+        });
+        
+        
         RecyclerView recyclerView = getView().findViewById(R.id.listRecyclerView);
 
         if (recyclerView != null) {
@@ -78,6 +86,10 @@ public class fragment_carrito extends Fragment {
         } else {
             Log.e("TAG", "RecyclerView is null");
         }
+    }
+
+    public void showMessageOnClick(ListElement item){
+        Toast.makeText(getContext(), "Presionaste", Toast.LENGTH_SHORT).show();
     }
 
 

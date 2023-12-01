@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.example.refamovil.R;
 import com.example.refamovil.adapters.ListAdapter;
@@ -140,7 +141,12 @@ public class BuscarProductosFragment extends Fragment {
         elements = new ArrayList<>();
         //elements.add(new ListElement("Aceite de tiempos", "$250", "#15SFDF5"));
 
-        listAdapter = new ListAdapter(elements, getContext());
+        listAdapter = new ListAdapter(elements, getContext(), new ListAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(ListElement item) {
+                showMessageOnClick(item);
+            }
+        });
         RecyclerView recyclerView = getView().findViewById(R.id.ListaProductos);
 
         if (recyclerView != null) {
@@ -150,6 +156,10 @@ public class BuscarProductosFragment extends Fragment {
         } else {
             Log.e("TAG", "RecyclerView is null");
         }
+    }
+
+    public void showMessageOnClick(ListElement item){
+        Toast.makeText(getContext(), "Presionaste", Toast.LENGTH_SHORT).show();
     }
 
     @Override
