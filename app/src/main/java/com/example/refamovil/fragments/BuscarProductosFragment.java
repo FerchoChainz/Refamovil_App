@@ -114,7 +114,12 @@ public class BuscarProductosFragment extends Fragment {
                 boolean encontrado = false;
                 for(int i = 0; i < elements.size(); i++){
                     if(barcode.equals(elements.get(i).getCodigoProducto().toString())){
-                        elements.add(new ListElement(elements.get(i).getNombreProducto(), elements.get(i).getPrecio(), elements.get(i).getCodigoProducto()));
+                        String n = elements.get(i).getNombreProducto();
+                        String p = elements.get(i).getPrecio();
+                        String c = elements.get(i).getCodigoProducto();
+
+                        elements.clear();
+                        elements.add(new ListElement(n,p,c));
                         encontrado = true;
                         break; // Suponiendo que deseas salir después de encontrar la primera coincidencia
                     }
