@@ -108,12 +108,12 @@ public class BuscarProductosFragment extends Fragment {
         IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
         if (result != null) {
             if (result.getContents() != null) {
-                String barcode = "#26SDGR1";
+                String barcode = result.getContents();
+                barcode = "#26SDGR1";
 
                 for(int i = 0; i < elements.size(); i++){
-                    if(barcode.equals(elements.get(2).toString())){
-                        // Actualiza la lista de elementos con la nueva información del código de barras
-                        elements.add(new ListElement(elements.get(0).toString(), elements.get(1).toString(), elements.get(2).toString()));
+                    if(barcode.equals(elements.get(4).getCodigoProducto().toString())){
+                        elements.add(new ListElement(elements.get(i).getNombreProducto(), elements.get(i).getPrecio(), elements.get(i).getCodigoProducto()));
                     } else {
                         Toast.makeText(getContext(),"Sirve pero no encontro el codigo", Toast.LENGTH_LONG).show();
                     }
