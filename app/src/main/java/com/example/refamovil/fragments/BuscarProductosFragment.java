@@ -119,13 +119,12 @@ public class BuscarProductosFragment extends Fragment {
                         break; // Suponiendo que deseas salir después de encontrar la primera coincidencia
                     }
                 }
+                // Notifica al adaptador sobre el cambio en los datos
+                listAdapter.notifyDataSetChanged();
 
                 if (!encontrado) {
                     Toast.makeText(getContext(), "Sirve pero no encontró el código", Toast.LENGTH_LONG).show();
                 }
-
-                // Notifica al adaptador sobre el cambio en los datos
-                listAdapter.notifyDataSetChanged();
             } else {
                 Toast.makeText(getContext(),"Sin resultados", Toast.LENGTH_LONG).show();
             }
