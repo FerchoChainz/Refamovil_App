@@ -140,8 +140,6 @@ public class BuscarProductosFragment extends Fragment {
     }
 
     public void init() {
-        elements = new ArrayList<>();
-
         listAdapter = new ListAdapter(elements, getContext(), new ListAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(ListElement item) {
