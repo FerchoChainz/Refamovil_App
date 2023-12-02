@@ -233,7 +233,7 @@
         android:layout_marginEnd="26dp"
         android:background="@drawable/rounded_background2"
         android:fontFamily="@font/merriweatherregular"
-        android:text="¡ Bienvenido Luis!"
+        android:text="¡ Bienvenido"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
