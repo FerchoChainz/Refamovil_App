@@ -111,13 +111,19 @@ public class BuscarProductosFragment extends Fragment {
                 String barcode = result.getContents();
                 barcode = "#26SDGR1";
 
+                boolean encontrado = false;
                 for(int i = 0; i < elements.size(); i++){
-                    if(barcode.equals(elements.get(4).getCodigoProducto().toString())){
+                    if(barcode.equals(elements.get(i).getCodigoProducto().toString())){
                         elements.add(new ListElement(elements.get(i).getNombreProducto(), elements.get(i).getPrecio(), elements.get(i).getCodigoProducto()));
-                    } else {
-                        Toast.makeText(getContext(),"Sirve pero no encontro el codigo", Toast.LENGTH_LONG).show();
+                        encontrado = true;
+                        break; // Suponiendo que deseas salir después de encontrar la primera coincidencia
                     }
                 }
+
+                if (!encontrado) {
+                    Toast.makeText(getContext(), "Sirve pero no encontró el código", Toast.LENGTH_LONG).show();
+                }
+
                 // Notifica al adaptador sobre el cambio en los datos
                 listAdapter.notifyDataSetChanged();
             } else {
