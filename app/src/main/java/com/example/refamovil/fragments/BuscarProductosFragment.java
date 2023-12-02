@@ -27,23 +27,25 @@ import com.google.zxing.integration.android.IntentResult;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link BuscarProductosFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class BuscarProductosFragment extends Fragment {
-    List<ListElement> elements;
+    List<ListElement> elements = Arrays.asList(new ListElement[]{
+            new ListElement("Aceite de carro", "$350", "#21FGL23"),
+            new ListElement("Aceite de moto", "$150", "#15SFDF5"),
+            new ListElement("Aceite de tiempos", "$250", "#18SFGR3"),
+            new ListElement("Aceite de bicicleta", "$550", "#26SDGR1"),
+            new ListElement("Aceite de maquinas", "$550", "#26SDGR1"),
+            new ListElement("Autoparte 1", "$100", "#ABC123"),
+            new ListElement("Autoparte 2", "$200", "#DEF456"),
+            new ListElement("Autoparte 3", "$250", "#DEF456"),
+            new ListElement("Autoparte 4", "$300", "#DEF456"),
+            new ListElement("Autoparte 5", "$250", "#DEF456")
+    });
     ListAdapter listAdapter;
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
@@ -51,15 +53,6 @@ public class BuscarProductosFragment extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment BuscarProductosFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static BuscarProductosFragment newInstance(String param1, String param2) {
         BuscarProductosFragment fragment = new BuscarProductosFragment();
         Bundle args = new Bundle();
@@ -116,13 +109,14 @@ public class BuscarProductosFragment extends Fragment {
         if (result != null) {
             if (result.getContents() != null) {
                 String barcode = result.getContents();
+                barcode = "#26SDGR1";
 
-                // Genera un precio aleatorio con 2 decimales
-                double randomPrice = Math.random() * 100;
-                String formattedPrice = formatPrice(randomPrice);
-
-                // Actualiza la lista de elementos con la nueva información del código de barras
-                elements.add(new ListElement("Aceites", formattedPrice, barcode));
+                for(int i = 0; i < elements.size(); i++){
+                    if(elements.get(2).toString().equals(barcode)){
+                        // Actualiza la lista de elementos con la nueva información del código de barras
+                        elements.add(new ListElement(elements.get(0).toString(), elements.get(1).toString(), elements.get(2).toString()));
+                    }
+                }
 
                 // Notifica al adaptador sobre el cambio en los datos
                 listAdapter.notifyDataSetChanged();
