@@ -31,7 +31,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class BuscarProductosFragment extends Fragment {
-    List<ListElement> elements = Arrays.asList(new ListElement[]{
+    ListElement[] elementos = new ListElement[]{
             new ListElement("Aceite de carro", "$350", "#21FGL23"),
             new ListElement("Aceite de moto", "$150", "#15SFDF5"),
             new ListElement("Aceite de tiempos", "$250", "#18SFGR3"),
@@ -42,7 +42,8 @@ public class BuscarProductosFragment extends Fragment {
             new ListElement("Autoparte 3", "$250", "#DEF456"),
             new ListElement("Autoparte 4", "$300", "#DEF456"),
             new ListElement("Autoparte 5", "$250", "#DEF456")
-    });
+    };
+    List <ListElement> elements;
     ListAdapter listAdapter;
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -112,13 +113,12 @@ public class BuscarProductosFragment extends Fragment {
                 barcode = "#26SDGR1";
 
                 boolean encontrado = false;
-                for(int i = 0; i < elements.size(); i++){
-                    if(barcode.equals(elements.get(i).getCodigoProducto().toString())){
-                        String n = elements.get(i).getNombreProducto();
-                        String p = elements.get(i).getPrecio();
-                        String c = elements.get(i).getCodigoProducto();
+                for(int i = 0; i < elementos.length; i++){
+                    if(barcode.equals(elementos[i].getCodigoProducto().toString())){
+                        String n = elementos[i].getNombreProducto();
+                        String p = elementos[i].getPrecio();
+                        String c = elementos[i].getCodigoProducto();
 
-                        elements.clear();
                         elements.add(new ListElement(n,p,c));
                         encontrado = true;
                         break; // Suponiendo que deseas salir después de encontrar la primera coincidencia
@@ -145,6 +145,7 @@ public class BuscarProductosFragment extends Fragment {
     }
 
     public void init() {
+        elements = new ArrayList<>();
         listAdapter = new ListAdapter(elements, getContext(), new ListAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(ListElement item) {
