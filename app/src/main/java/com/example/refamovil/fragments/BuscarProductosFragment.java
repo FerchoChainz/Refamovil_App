@@ -123,6 +123,8 @@ public class BuscarProductosFragment extends Fragment {
             } else {
                 Toast.makeText(getContext(),"Sin resultados", Toast.LENGTH_LONG).show();
             }
+        } else {
+            Toast.makeText(getContext(),"Definitivamente no sirve", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -134,7 +136,6 @@ public class BuscarProductosFragment extends Fragment {
 
     public void init() {
         elements = new ArrayList<>();
-        //elements.add(new ListElement("Aceite de tiempos", "$250", "#15SFDF5"));
 
         listAdapter = new ListAdapter(elements, getContext(), new ListAdapter.OnItemClickListener() {
             @Override
