@@ -70,7 +70,9 @@ public class MainActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if (task.isSuccessful()) {
                             if (task.getResult() != null && !task.getResult().isEmpty()) {
-                                startActivity(new Intent(getApplicationContext(), InicioActivity.class));
+                                Intent intent = new Intent(getApplicationContext(), InicioActivity.class);
+                                intent.putExtra("username", nombre);
+                                startActivity(intent);
                             } else {
                                 Toast.makeText(getApplicationContext(), "Credenciales incorrectas", Toast.LENGTH_LONG).show();
                                 clearComponents();

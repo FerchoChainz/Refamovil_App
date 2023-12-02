@@ -8,15 +8,12 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-
-import android.widget.Toast;
 
 import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.ViewModelProvider;
 
 
 import com.example.refamovil.fragments.BuscarProductosFragment;
@@ -29,9 +26,8 @@ import com.example.refamovil.fragments.fragment_carrito;
 import com.google.android.material.navigation.NavigationView;
 
 public class InicioActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-
-
     private DrawerLayout drawerLayout;
+    public static String nombre;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +50,14 @@ public class InicioActivity extends AppCompatActivity implements NavigationView.
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
             navigationView.setCheckedItem(R.id.nav_Inicio);
         }
+
+        Intent intent = getIntent();
+        if(intent != null) {
+            nombre = intent.getStringExtra("username");
+        }
+
+        UserModel tuViewModel = new ViewModelProvider(this).get(UserModel.class);
+        tuViewModel.setUsername(nombre);
     }
 
     @Override
