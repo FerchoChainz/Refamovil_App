@@ -64,10 +64,7 @@ public class fragment_carrito extends Fragment {
 
     public void init() {
         elements = new ArrayList<>();
-        elements.add(new ListElement("Aceite Para carro", "$150", "#3333"));
-        elements.add(new ListElement("Aceite Para carro", "$150", "#3333"));
-        elements.add(new ListElement("Aceite Para carro", "$150", "#3333"));
-        elements.add(new ListElement("Aceite Para carro", "$150", "#3333"));
+
 
         ListAdapter listAdapter = new ListAdapter(elements, getContext(), new ListAdapter.OnItemClickListener() {
             @Override

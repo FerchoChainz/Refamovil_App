@@ -73,12 +73,18 @@ public class MainActivity extends AppCompatActivity {
                                 startActivity(new Intent(getApplicationContext(), InicioActivity.class));
                             } else {
                                 Toast.makeText(getApplicationContext(), "Credenciales incorrectas", Toast.LENGTH_LONG).show();
+                                clearComponents();
                             }
                         } else {
                             Toast.makeText(getApplicationContext(), "Error al verificar las credenciales", Toast.LENGTH_LONG).show();
                         }
                     }
                 });
+    }
+
+    public void clearComponents(){
+        user.setText("");
+        password.setText("");
     }
 }
 

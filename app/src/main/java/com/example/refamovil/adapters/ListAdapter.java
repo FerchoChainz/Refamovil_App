@@ -1,15 +1,21 @@
 package com.example.refamovil.adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.refamovil.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.List;
 
@@ -62,9 +68,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             codeProduct = view.findViewById(R.id.txtProductCode);
         }
 
-
         void bindData(final ListElement item){
-//            iconImage.setColorFilter(Color.parseColor(item.getColor()), PorterDuff.Mode.SRC_IN);
             nameProduct.setText(item.getNombreProducto());
             priceProduct.setText(item.getPrecio());
             codeProduct.setText(item.getCodigoProducto());
@@ -72,8 +76,30 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
                 @Override
                 public void onClick(View view) {
                     listener.onItemClick(item);
+                    uploadData(item);
+
                 }
             });
+        }
+
+        private void uploadData(ListElement element){
+            FirebaseFirestore firestore = FirebaseFirestore.getInstance();
+
+
+            firestore.collection("Productos")
+                    .add(element.toMap())
+                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                        @Override
+                        public void onSuccess(DocumentReference documentReference) {
+                            Log.d("TAG", "Documento subido con ID" + documentReference.getId());
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Log.w("TAG FAIL", "Error al subir el documento", e);
+                        }
+                    });
         }
     }
 }

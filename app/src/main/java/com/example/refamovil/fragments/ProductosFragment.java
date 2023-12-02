@@ -72,6 +72,7 @@ public class ProductosFragment extends Fragment {
          listAdapter = new ListAdapter(elements, getContext(), new ListAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(ListElement item) {
+
                 showMessageOnClick(item);
             }
         });
@@ -86,8 +87,9 @@ public class ProductosFragment extends Fragment {
         }
     }
 
+
     public void showMessageOnClick(ListElement item){
-        Toast.makeText(getContext(), "Presionaste", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), "Producto añadido correctamente", Toast.LENGTH_SHORT).show();
     }
 
     public void setAllProducts() {
@@ -116,7 +118,6 @@ public class ProductosFragment extends Fragment {
         elements.clear();
         elements.add(new ListElement("Autoparte 1", "$100", "#ABC123"));
         elements.add(new ListElement("Autoparte 2", "$200", "#DEF456"));
-        // Agrega más elementos según sea necesario
     }
 
 
@@ -157,7 +158,6 @@ public class ProductosFragment extends Fragment {
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-                // Manejar la selección nula si es necesario
             }
         });
 
