@@ -62,22 +62,27 @@
                     android:layout_height="wrap_content"
                     android:text="Mexico"
                     android:textColor="@color/white"
-                    android:textSize="18sp"/>
+                    android:textSize="18sp" />
             </LinearLayout>
 
             <TextView
                 android:id="@+id/txtProductCode"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginEnd="6dp"
-                android:layout_marginRight="6dp"
+                android:layout_alignParentStart="false"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="false"
+                android:layout_centerVertical="false"
+                android:layout_marginLeft="299dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginRight="30dp"
                 android:text="#33333"
                 android:textColor="@color/white"
                 android:textSize="20sp"
-                android:textStyle="bold"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"/>
+                android:textStyle="bold" />
 
         </RelativeLayout>
     </LinearLayout>
