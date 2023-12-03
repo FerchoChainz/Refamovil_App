@@ -32,16 +32,16 @@ import java.util.List;
 
 public class BuscarProductosFragment extends Fragment {
     ListElement[] elementos = new ListElement[]{
-            new ListElement("Aceite de carro", "$350", "#21FGL23"),
-            new ListElement("Aceite de moto", "$150", "#15SFDF5"),
-            new ListElement("Aceite de tiempos", "$250", "#18SFGR3"),
-            new ListElement("Aceite de bicicleta", "$550", "#26SDGR1"),
-            new ListElement("Aceite de maquinas", "$550", "#26SDGR1"),
-            new ListElement("Autoparte 1", "$100", "#ABC123"),
-            new ListElement("Autoparte 2", "$200", "#DEF456"),
-            new ListElement("Autoparte 3", "$250", "#DEF456"),
-            new ListElement("Autoparte 4", "$300", "#DEF456"),
-            new ListElement("Autoparte 5", "$250", "#DEF456")
+            new ListElement("Aceite de carro", "$350", "123456789012"),
+            new ListElement("Aceite de moto", "$150", "345678901234"),
+            new ListElement("Aceite de tiempos", "$250", "567890123456"),
+            new ListElement("Aceite de bicicleta", "$550", "789012345678"),
+            new ListElement("Aceite de maquinas", "$550", "901234567890"),
+            new ListElement("Pila", "$100", "234567890123"),
+            new ListElement("Amortiguadores", "$200", "456789012345"),
+            new ListElement("Carburador", "$250", "678901234567"),
+            new ListElement("Bandas", "$300", "890123456789"),
+            new ListElement("Balatas", "$250", "987654321087")
     };
     List <ListElement> elements;
     ListAdapter listAdapter;
@@ -110,7 +110,7 @@ public class BuscarProductosFragment extends Fragment {
         if (result != null) {
             if (result.getContents() != null) {
                 String barcode = result.getContents();
-                barcode = "#26SDGR1";
+
 
                 boolean encontrado = false;
                 for(int i = 0; i < elementos.length; i++){
