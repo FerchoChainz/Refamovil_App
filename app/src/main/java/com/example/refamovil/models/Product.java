@@ -2,9 +2,9 @@ package com.example.refamovil.models;
 
 public class Product {
     String nameProduct, barCode;
-    int price;
+    String price;
 
-    public Product(String nameProduct, String barCode, int price) {
+    public Product(String nameProduct, String barCode, String  price) {
         this.nameProduct = nameProduct;
         this.barCode = barCode;
         this.price = price;
@@ -26,11 +26,11 @@ public class Product {
         this.barCode = barCode;
     }
 
-    public int getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 }

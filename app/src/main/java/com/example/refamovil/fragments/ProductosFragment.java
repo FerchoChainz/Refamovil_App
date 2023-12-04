@@ -31,6 +31,7 @@ public class ProductosFragment extends Fragment {
     List<ListElement> elements;
     ListAdapter listAdapter;
 
+
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private String mParam1;
@@ -57,7 +58,6 @@ public class ProductosFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
-
 
     @Override
     public void onViewCreated( View view,  Bundle savedInstanceState) {
@@ -94,30 +94,36 @@ public class ProductosFragment extends Fragment {
 
     public void setAllProducts() {
         elements.clear();
-        elements.add(new ListElement("Aceite de carro", "$350", "#21FGL23"));
-        elements.add(new ListElement("Aceite de moto", "$150", "#15SFDF5"));
-        elements.add(new ListElement("Aceite de tiempos", "$250", "#18SFGR3"));
-        elements.add(new ListElement("Aceite de bicicleta", "$550", "#26SDGR1"));
-        elements.add(new ListElement("Aceite de motor", "$350", "#03SHRR9"));
-        elements.add(new ListElement("Aceite de maquinas", "$450", "#14SKBR6"));
-        elements.add(new ListElement("Autoparte 1", "$100", "#ABC123"));
-        elements.add(new ListElement("Autoparte 2", "$200", "#DEF456"));
+        elements.add(new ListElement("Aceite de carro", "$350", "123456789012"));
+        elements.add(new ListElement("Aceite de moto", "$150", "345678901234"));
+        elements.add(new ListElement("Aceite de tiempos", "$250", "567890123456"));
+        elements.add(new ListElement("Aceite de bicicleta", "$550", "789012345678"));
+        elements.add(new ListElement("Aceite de maquinas", "$550", "901234567890"));
+        elements.add(new ListElement("Pila", "$100", "234567890123"));
+        elements.add(new ListElement("Amortiguadores", "$200", "456789012345"));
+        elements.add(new ListElement("Carburador", "$250", "678901234567"));
+        elements.add(new ListElement("Bandas", "$300", "890123456789"));
+        elements.add(new ListElement("Balatas", "$250", "987654321087"));
     }
 
     public void setOnAceites() {
         elements.clear();
-        elements.add(new ListElement("Aceite de carro", "$350", "#21FGL23"));
-        elements.add(new ListElement("Aceite de moto", "$150", "#15SFDF5"));
-        elements.add(new ListElement("Aceite de tiempos", "$250", "#18SFGR3"));
-        elements.add(new ListElement("Aceite de bicicleta", "$550", "#26SDGR1"));
-        elements.add(new ListElement("Aceite de motor", "$350", "#03SHRR9"));
-        elements.add(new ListElement("Aceite de maquinas", "$450", "#14SKBR6"));
+        elements.add(new ListElement("Aceite de carro", "$350", "123456789012"));
+        elements.add(new ListElement("Aceite de moto", "$150", "345678901234"));
+        elements.add(new ListElement("Aceite de tiempos", "$250", "567890123456"));
+        elements.add(new ListElement("Aceite de bicicleta", "$550", "789012345678"));
+        elements.add(new ListElement("Aceite de maquinas", "$550", "901234567890"));
     }
 
     public void setOnAutopartes() {
         elements.clear();
         elements.add(new ListElement("Autoparte 1", "$100", "#ABC123"));
         elements.add(new ListElement("Autoparte 2", "$200", "#DEF456"));
+        elements.add(new ListElement("Pila", "$100", "234567890123"));
+        elements.add(new ListElement("Amortiguadores", "$200", "456789012345"));
+        elements.add(new ListElement("Carburador", "$250", "678901234567"));
+        elements.add(new ListElement("Bandas", "$300", "890123456789"));
+        elements.add(new ListElement("Balatas", "$250", "987654321087"));
     }
 
 

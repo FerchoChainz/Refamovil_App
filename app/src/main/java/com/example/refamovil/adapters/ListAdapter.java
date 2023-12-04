@@ -36,6 +36,7 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
         this.context = context;
         this.mData = itemList;
         this.listener = listener;
+        notifyDataSetChanged();
     }
 
     @Override
@@ -75,17 +76,15 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    listener.onItemClick(item);
+                    if (listener != null){
+                        listener.onItemClick(item);
+                    }
                     uploadData(item);
-
                 }
             });
         }
-
         private void uploadData(ListElement element){
             FirebaseFirestore firestore = FirebaseFirestore.getInstance();
-
-
             firestore.collection("Productos")
                     .add(element.toMap())
                     .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {

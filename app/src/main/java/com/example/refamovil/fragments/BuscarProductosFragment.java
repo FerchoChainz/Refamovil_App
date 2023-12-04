@@ -27,23 +27,26 @@ import com.google.zxing.integration.android.IntentResult;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link BuscarProductosFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class BuscarProductosFragment extends Fragment {
-    List<ListElement> elements;
+    ListElement[] elementos = new ListElement[]{
+            new ListElement("Aceite de carro", "$350", "123456789012"),
+            new ListElement("Aceite de moto", "$150", "345678901234"),
+            new ListElement("Aceite de tiempos", "$250", "567890123456"),
+            new ListElement("Aceite de bicicleta", "$550", "789012345678"),
+            new ListElement("Aceite de maquinas", "$550", "901234567890"),
+            new ListElement("Pila", "$100", "234567890123"),
+            new ListElement("Amortiguadores", "$200", "456789012345"),
+            new ListElement("Carburador", "$250", "678901234567"),
+            new ListElement("Bandas", "$300", "890123456789"),
+            new ListElement("Balatas", "$250", "987654321087")
+    };
+    List <ListElement> elements;
     ListAdapter listAdapter;
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
@@ -51,15 +54,6 @@ public class BuscarProductosFragment extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment BuscarProductosFragment.
-     */
-    // TODO: Rename and change types and number of parameters
     public static BuscarProductosFragment newInstance(String param1, String param2) {
         BuscarProductosFragment fragment = new BuscarProductosFragment();
         Bundle args = new Bundle();
@@ -117,17 +111,30 @@ public class BuscarProductosFragment extends Fragment {
             if (result.getContents() != null) {
                 String barcode = result.getContents();
 
-                // Genera un precio aleatorio con 2 decimales
-                double randomPrice = Math.random() * 100;
-                String formattedPrice = formatPrice(randomPrice);
 
-                // Actualiza la lista de elementos con la nueva información del código de barras
-                elements.add(new ListElement("Aceites", formattedPrice, barcode));
+                boolean encontrado = false;
+                for(int i = 0; i < elementos.length; i++){
+                    if(barcode.equals(elementos[i].getCodigoProducto().toString())){
+                        String n = elementos[i].getNombreProducto();
+                        String p = elementos[i].getPrecio();
+                        String c = elementos[i].getCodigoProducto();
 
+                        elements.add(new ListElement(n,p,c));
+                        encontrado = true;
+                        break; // Suponiendo que deseas salir después de encontrar la primera coincidencia
+                    }
+                }
                 // Notifica al adaptador sobre el cambio en los datos
                 listAdapter.notifyDataSetChanged();
+
+                if (!encontrado) {
+                    Toast.makeText(getContext(), "Sirve pero no encontró el código", Toast.LENGTH_LONG).show();
+                }
             } else {
+                Toast.makeText(getContext(),"Sin resultados", Toast.LENGTH_LONG).show();
             }
+        } else {
+            Toast.makeText(getContext(),"Definitivamente no sirve", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -139,8 +146,6 @@ public class BuscarProductosFragment extends Fragment {
 
     public void init() {
         elements = new ArrayList<>();
-        //elements.add(new ListElement("Aceite de tiempos", "$250", "#15SFDF5"));
-
         listAdapter = new ListAdapter(elements, getContext(), new ListAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(ListElement item) {
