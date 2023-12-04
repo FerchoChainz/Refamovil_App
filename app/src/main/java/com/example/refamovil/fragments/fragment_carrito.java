@@ -30,7 +30,7 @@ import java.util.List;
 
 public class fragment_carrito extends Fragment {
 
-    List<ListElement> elements;
+    List<ListElement> elements = new ArrayList<>();
     Button comprar;
     private static final String CHANNEL_ID = "channel_id";
     private static final int NOTIFICATION_ID = 1;
@@ -38,6 +38,7 @@ public class fragment_carrito extends Fragment {
     private static final String ARG_PARAM2 = "param2";
     private String mParam1;
     private String mParam2;
+    ListAdapter listAdapter;
 
     public fragment_carrito() {
         // Required empty public constructor
@@ -62,26 +63,20 @@ public class fragment_carrito extends Fragment {
     }
 
     @Override
-    public void onViewCreated( View view,  Bundle savedInstanceState) {
+    public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        init(); // Llama a init() después de que la vista ha sido creada
-    }
-
-    public void init() {
-        elements = new ArrayList<>();
-        elements.add(new ListElement("Aceite Para carro", "$150", "#3333"));
-        elements.add(new ListElement("Aceite Para carro", "$150", "#3333"));
-        elements.add(new ListElement("Aceite Para carro", "$150", "#3333"));
-        elements.add(new ListElement("Aceite Para carro", "$150", "#3333"));
-
-        ListAdapter listAdapter = new ListAdapter(elements, getContext(), new ListAdapter.OnItemClickListener() {
+        listAdapter = new ListAdapter(elements, getContext(), new ListAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(ListElement item) {
                 showMessageOnClick(item);
             }
         });
-        
-        
+        init();
+        listAdapter.notifyDataSetChanged();
+    }
+
+
+    public void init() {
         RecyclerView recyclerView = getView().findViewById(R.id.listRecyclerView);
 
         if (recyclerView != null) {
@@ -93,8 +88,23 @@ public class fragment_carrito extends Fragment {
         }
     }
 
+    public void setListElement(ListElement listElement){
+        if (elements == null) {
+            elements = new ArrayList<>();
+        }
+
+        ListElement element = new ListElement(listElement.getNombreProducto(), listElement.getPrecio(), listElement.getCodigoProducto());
+
+        Log.d("carrito", "Nombre: " + element.getNombreProducto());
+        Log.d("carrito", "Precio: " + element.getPrecio());
+        Log.d("carrito", "Código: " + element.getCodigoProducto());
+
+        elements.add(element);
+    }
+
+
     public void showMessageOnClick(ListElement item){
-        Toast.makeText(getContext(), "Presionaste", Toast.LENGTH_SHORT).show();
+        // Borrar cardView
     }
 
 
