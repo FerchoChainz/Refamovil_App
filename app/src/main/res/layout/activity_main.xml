@@ -8,8 +8,8 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
-        android:layout_width="417dp"
-        android:layout_height="63dp"
+        android:layout_width="457dp"
+        android:layout_height="60dp"
         android:background="@color/black"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
@@ -74,6 +74,7 @@
         android:id="@+id/jlbUsuario"
         android:layout_width="104dp"
         android:layout_height="35dp"
+        android:layout_marginStart="10dp"
         android:layout_marginBottom="8dp"
         android:fontFamily="@font/merriweatherregular"
         android:text="@string/usuario"
@@ -88,6 +89,7 @@
         android:id="@+id/jlbPsswd"
         android:layout_width="123dp"
         android:layout_height="32dp"
+        android:layout_marginStart="10dp"
         android:layout_marginBottom="4dp"
         android:fontFamily="@font/merriweatherregular"
         android:text="@string/psswd"
