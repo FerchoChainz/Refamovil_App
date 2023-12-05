@@ -100,14 +100,6 @@ public class ProductosFragment extends Fragment {
         for (ListElement element : cart) {
             Log.d("TAG", element.getNombreProducto());
         }
-
-//        FragmentManager fragmentManager = getFragmentManager();
-//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//        fragment_carrito carrito = new fragment_carrito();
-//        carrito.setListElement(sendItem);
-//        fragmentTransaction.replace(R.id.fragment_container, carrito);
-//        fragmentTransaction.addToBackStack(null);
-//        fragmentTransaction.commit();
     }
 
     public void setAllProducts() {
