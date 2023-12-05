@@ -3,6 +3,8 @@ package com.example.refamovil.fragments;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -30,7 +32,6 @@ import java.util.List;
 public class ProductosFragment extends Fragment {
     List<ListElement> elements;
     ListAdapter listAdapter;
-
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -72,7 +73,6 @@ public class ProductosFragment extends Fragment {
          listAdapter = new ListAdapter(elements, getContext(), new ListAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(ListElement item) {
-
                 showMessageOnClick(item);
             }
         });
@@ -90,6 +90,16 @@ public class ProductosFragment extends Fragment {
 
     public void showMessageOnClick(ListElement item){
         Toast.makeText(getContext(), "Producto añadido correctamente", Toast.LENGTH_SHORT).show();
+
+        ListElement sendItem = new ListElement(item.getNombreProducto(), item.getPrecio(), item.getCodigoProducto());
+
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragment_carrito carrito = new fragment_carrito();
+        carrito.setListElement(sendItem);
+        fragmentTransaction.replace(R.id.fragment_container, carrito);
+        fragmentTransaction.addToBackStack(null);
+        fragmentTransaction.commit();
     }
 
     public void setAllProducts() {

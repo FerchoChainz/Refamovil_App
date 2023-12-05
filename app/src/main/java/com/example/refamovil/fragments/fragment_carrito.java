@@ -10,12 +10,15 @@ import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.refamovil.R;
 import com.example.refamovil.adapters.ListAdapter;
@@ -27,8 +30,7 @@ import java.util.List;
 
 
 public class fragment_carrito extends Fragment  {
-
-
+    List<ListElement> elements = new ArrayList<>();
     Button comprar;
     private static final String CHANNEL_ID = "channel_id";
     private static final int NOTIFICATION_ID = 1;
@@ -36,9 +38,10 @@ public class fragment_carrito extends Fragment  {
     private static final String ARG_PARAM2 = "param2";
     private String mParam1;
     private String mParam2;
+    ListAdapter listAdapter;
 
     public fragment_carrito() {
-        // Required empty public constructor
+        elements = new ArrayList<>();
     }
 
     public static fragment_carrito newInstance(String param1, String param2) {
@@ -60,9 +63,51 @@ public class fragment_carrito extends Fragment  {
     }
 
     @Override
-    public void onViewCreated( View view,  Bundle savedInstanceState) {
+    public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+
+        listAdapter = new ListAdapter(elements, getContext(), new ListAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(ListElement item) {
+                showMessageOnClick(item);
+            }
+        });
+        init();
+        listAdapter.notifyDataSetChanged();
     }
+
+    public void init() {
+        RecyclerView recyclerView = getView().findViewById(R.id.listRecyclerView);
+
+        if (recyclerView != null) {
+            recyclerView.setHasFixedSize(true);
+            recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+            recyclerView.setAdapter(listAdapter);
+        } else {
+            Log.e("TAG", "RecyclerView is null");
+        }
+    }
+
+    public void setListElement(ListElement listElement){
+        if (elements == null) {
+            elements = new ArrayList<>();
+        }
+
+        ListElement element = new ListElement(listElement.getNombreProducto(), listElement.getPrecio(), listElement.getCodigoProducto());
+
+        Log.d("carrito", "Nombre: " + element.getNombreProducto());
+        Log.d("carrito", "Precio: " + element.getPrecio());
+        Log.d("carrito", "Código: " + element.getCodigoProducto());
+
+        elements.add(element);
+    }
+
+
+    public void showMessageOnClick(ListElement item){
+        // Borrar cardView
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -75,19 +120,30 @@ public class fragment_carrito extends Fragment  {
             @Override
             public void onClick(View v) {
                 showNotification();
-                navigateToFragmentB();
+                navigateToFragmentCarrito();
             }
         });
         return view;
     }
 
-    private void navigateToFragmentB() {
+    private void navigateToFragmentCarrito() {
         FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_container, new VerComprasFragment());
+
+        // Verifica si el fragmento ya está agregado
+        fragment_carrito existingFragment = (fragment_carrito) fragmentManager.findFragmentByTag("fragment_carrito");
+
+        if (existingFragment == null) {
+            existingFragment = new fragment_carrito();
+            fragmentTransaction.add(R.id.fragment_container, existingFragment, "fragment_carrito");
+        }
+
+        fragmentTransaction.replace(R.id.fragment_container, existingFragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
+
+
 
     private void showNotification() {
         NotificationManager notificationManager = (NotificationManager) requireActivity().getSystemService(Context.NOTIFICATION_SERVICE);
@@ -105,6 +161,5 @@ public class fragment_carrito extends Fragment  {
 
         notificationManager.notify(NOTIFICATION_ID, builder.build());
     }
-
-
 }
+

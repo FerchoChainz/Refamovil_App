@@ -76,6 +76,8 @@ public class MainActivity extends AppCompatActivity {
                             } else {
                                 Toast.makeText(getApplicationContext(), "Credenciales incorrectas", Toast.LENGTH_LONG).show();
                                 clearComponents();
+                                user.setText(null);
+                                password.setText(null);
                             }
                         } else {
                             Toast.makeText(getApplicationContext(), "Error al verificar las credenciales", Toast.LENGTH_LONG).show();
