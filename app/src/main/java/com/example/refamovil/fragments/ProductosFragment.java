@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.example.refamovil.R;
 import com.example.refamovil.adapters.ListAdapter;
 import com.example.refamovil.adapters.ListElement;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +33,9 @@ import java.util.List;
 public class ProductosFragment extends Fragment {
     List<ListElement> elements;
     ListAdapter listAdapter;
+    private FloatingActionButton fab;
+
+    List<ListElement> cart = new ArrayList<>();
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -61,7 +65,7 @@ public class ProductosFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated( View view,  Bundle savedInstanceState) {
+    public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         init(); // Llama a init() después de que la vista ha sido creada
     }
@@ -70,7 +74,7 @@ public class ProductosFragment extends Fragment {
         elements = new ArrayList<>();
         setAllProducts();
 
-         listAdapter = new ListAdapter(elements, getContext(), new ListAdapter.OnItemClickListener() {
+        listAdapter = new ListAdapter(elements, getContext(), new ListAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(ListElement item) {
                 showMessageOnClick(item);
@@ -87,16 +91,23 @@ public class ProductosFragment extends Fragment {
         }
     }
 
-    public void showMessageOnClick(ListElement item){
+    public void showMessageOnClick(ListElement item) {
         ListElement sendItem = new ListElement(item.getNombreProducto(), item.getPrecio(), item.getCodigoProducto());
+        cart.add(sendItem);
+        Toast.makeText(getContext(), "Agregado al carrito", Toast.LENGTH_SHORT).show();
 
-        FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragment_carrito carrito = new fragment_carrito();
-        carrito.setListElement(sendItem);
-        fragmentTransaction.replace(R.id.fragment_container, carrito);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
+        // TODO: Recorer el carrito y mostrar los elementos en un fragmento
+        for (ListElement element : cart) {
+            Log.d("TAG", element.getNombreProducto());
+        }
+
+//        FragmentManager fragmentManager = getFragmentManager();
+//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//        fragment_carrito carrito = new fragment_carrito();
+//        carrito.setListElement(sendItem);
+//        fragmentTransaction.replace(R.id.fragment_container, carrito);
+//        fragmentTransaction.addToBackStack(null);
+//        fragmentTransaction.commit();
     }
 
     public void setAllProducts() {
@@ -137,6 +148,22 @@ public class ProductosFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_productos, container, false);
+
+        // Floating Action Button
+        fab = root.findViewById(R.id.floatingActionButton);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FragmentManager fragmentManager = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                fragment_carrito carrito = new fragment_carrito();
+                carrito.setListElement(cart);
+                fragmentTransaction.replace(R.id.fragment_container, carrito);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+
+            }
+        });
 
         // Obtén una referencia al Spinner desde el diseño XML
         Spinner spinner = root.findViewById(R.id.spTipo);  // Asegúrate de tener el ID correcto

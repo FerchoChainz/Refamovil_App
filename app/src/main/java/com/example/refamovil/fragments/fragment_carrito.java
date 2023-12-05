@@ -18,7 +18,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.example.refamovil.R;
 import com.example.refamovil.adapters.ListAdapter;
@@ -88,22 +87,22 @@ public class fragment_carrito extends Fragment {
         }
     }
 
-    public void setListElement(ListElement listElement){
+    public void setListElement(List<ListElement> listElement) {
         if (elements == null) {
             elements = new ArrayList<>();
         }
 
-        ListElement element = new ListElement(listElement.getNombreProducto(), listElement.getPrecio(), listElement.getCodigoProducto());
+//        ListElement element = new ListElement(listElement.getNombreProducto(), listElement.getPrecio(), listElement.getCodigoProducto());
+//
+//        Log.d("carrito", "Nombre: " + element.getNombreProducto());
+//        Log.d("carrito", "Precio: " + element.getPrecio());
+//        Log.d("carrito", "Código: " + element.getCodigoProducto());
 
-        Log.d("carrito", "Nombre: " + element.getNombreProducto());
-        Log.d("carrito", "Precio: " + element.getPrecio());
-        Log.d("carrito", "Código: " + element.getCodigoProducto());
-
-        elements.add(element);
+        elements.addAll(listElement);
     }
 
 
-    public void showMessageOnClick(ListElement item){
+    public void showMessageOnClick(ListElement item) {
         // Borrar cardView
     }
 
