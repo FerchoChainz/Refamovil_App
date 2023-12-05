@@ -31,8 +31,7 @@
         android:id="@+id/txtBienvenida"
         android:layout_width="373dp"
         android:layout_height="69dp"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="25dp"
         android:layout_marginEnd="19dp"
         android:background="@drawable/rounded_background2"
         android:fontFamily="@font/merriweatherregular"
@@ -42,6 +41,7 @@
         android:textSize="34sp"
         app:layout_constraintBottom_toTopOf="@+id/spTipo"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -49,11 +49,11 @@
         android:id="@+id/spTipo"
         android:layout_width="392dp"
         android:layout_height="71dp"
-        android:layout_marginStart="9dp"
-        android:layout_marginEnd="10dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginEnd="2dp"
         app:layout_constraintBottom_toTopOf="@+id/scrollView3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtBienvenida" />
 
