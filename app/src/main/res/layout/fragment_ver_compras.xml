@@ -60,6 +60,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtTileCompras" >
 
+            <TextView
+                android:id="@+id/txtResults"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:textAlignment="center"
+                android:textSize="16sp" />
         </ScrollView>
 
         <TextView

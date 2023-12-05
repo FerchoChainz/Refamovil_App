@@ -3,13 +3,16 @@ package com.example.refamovil.fragments;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,13 +22,24 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.refamovil.InicioActivity;
+import com.example.refamovil.MainActivity;
 import com.example.refamovil.R;
+import com.example.refamovil.UserModel;
 import com.example.refamovil.adapters.ListAdapter;
 import com.example.refamovil.adapters.ListElement;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 public class fragment_carrito extends Fragment {
@@ -40,6 +54,8 @@ public class fragment_carrito extends Fragment {
     private String mParam2;
     ListAdapter listAdapter;
     TextView sub, total;
+    private FirebaseFirestore firebaseFirestore;
+    private float accountTotal;
 
     public fragment_carrito() {
         // Required empty public constructor
@@ -112,12 +128,13 @@ public class fragment_carrito extends Fragment {
         comprar = view.findViewById(R.id.btnRegistrar);
         sub = view.findViewById(R.id.txtSubTotal);
         total = view.findViewById(R.id.txtTotal);
+        firebaseFirestore = FirebaseFirestore.getInstance();
 
         comprar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 showNotification();
-                navigateToFragmentB();
+                savePedidos();
             }
         });
 
@@ -130,17 +147,45 @@ public class fragment_carrito extends Fragment {
 
         sub.setText(sub.getText() + String.valueOf(subtotal));
         float totalAcount = (float) (subtotal * 1.10);
+        accountTotal = totalAcount;
         total.setText(total.getText() + String.valueOf(totalAcount));
 
         return view;
     }
 
-    private void navigateToFragmentB() {
-        FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.fragment_container, new VerComprasFragment());
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
+    public void savePedidos(){
+        String titulo = "Pedido " + new Date().toLocaleString();
+        String productos = "";
+        for(ListElement element: elements){
+            productos += "\n" + element.getNombreProducto().toString()
+            + "\t" + element.getPrecio().toString() + "\n";
+        }
+        String total = "Total: " + String.valueOf(accountTotal);
+        uploadPedidos(titulo, productos, total);
+    }
+
+    private void uploadPedidos(String titulo, String productos, String total) {
+        Map<String, Object> map = new HashMap<>();
+
+        UserModel tuViewModel = new ViewModelProvider(this).get(UserModel.class);
+        tuViewModel.setUsername(InicioActivity.nombre);
+
+        map.put("usuario", InicioActivity.nombre);
+        map.put("titulo", titulo);
+        map.put("descripcion", productos);
+        map.put("total", total);
+        firebaseFirestore.collection("pedido").add(map).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+            @Override
+            public void onSuccess(DocumentReference documentReference) {
+                Toast.makeText(getContext(), "Pedido creado", Toast.LENGTH_LONG).show();
+                startActivity(new Intent(getContext(), InicioActivity.class));
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(getContext(), "Error to introduce pedido", Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     private void showNotification() {
