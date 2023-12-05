@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.example.refamovil.R;
 import com.example.refamovil.adapters.ListAdapter;
 import com.example.refamovil.adapters.ListElement;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +33,9 @@ import java.util.List;
 public class ProductosFragment extends Fragment {
     List<ListElement> elements;
     ListAdapter listAdapter;
+    private FloatingActionButton fab;
+
+    List<ListElement> cart = new ArrayList<>();
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -61,7 +65,7 @@ public class ProductosFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated( View view,  Bundle savedInstanceState) {
+    public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         init(); // Llama a init() después de que la vista ha sido creada
     }
@@ -70,7 +74,7 @@ public class ProductosFragment extends Fragment {
         elements = new ArrayList<>();
         setAllProducts();
 
-         listAdapter = new ListAdapter(elements, getContext(), new ListAdapter.OnItemClickListener() {
+        listAdapter = new ListAdapter(elements, getContext(), new ListAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(ListElement item) {
                 showMessageOnClick(item);
@@ -88,95 +92,117 @@ public class ProductosFragment extends Fragment {
     }
 
 
-    public void showMessageOnClick(ListElement item){
-        Toast.makeText(getContext(), "Producto añadido correctamente", Toast.LENGTH_SHORT).show();
+        public void showMessageOnClick (ListElement item){
+            ListElement sendItem = new ListElement(item.getNombreProducto(), item.getPrecio(), item.getCodigoProducto());
+            cart.add(sendItem);
+            Toast.makeText(getContext(), "Agregado al carrito", Toast.LENGTH_SHORT).show();
 
-        ListElement sendItem = new ListElement(item.getNombreProducto(), item.getPrecio(), item.getCodigoProducto());
+            // TODO: Recorer el carrito y mostrar los elementos en un fragmento
+            for (ListElement element : cart) {
+                Log.d("TAG", element.getNombreProducto());
+            }
 
-        FragmentManager fragmentManager = getFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragment_carrito carrito = new fragment_carrito();
-        carrito.setListElement(sendItem);
-        fragmentTransaction.replace(R.id.fragment_container, carrito);
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
-    }
-
-    public void setAllProducts() {
-        elements.clear();
-        elements.add(new ListElement("Aceite de carro", "$350", "123456789012"));
-        elements.add(new ListElement("Aceite de moto", "$150", "345678901234"));
-        elements.add(new ListElement("Aceite de tiempos", "$250", "567890123456"));
-        elements.add(new ListElement("Aceite de bicicleta", "$550", "789012345678"));
-        elements.add(new ListElement("Aceite de maquinas", "$550", "901234567890"));
-        elements.add(new ListElement("Pila", "$100", "234567890123"));
-        elements.add(new ListElement("Amortiguadores", "$200", "456789012345"));
-        elements.add(new ListElement("Carburador", "$250", "678901234567"));
-        elements.add(new ListElement("Bandas", "$300", "890123456789"));
-        elements.add(new ListElement("Balatas", "$250", "987654321087"));
-    }
-
-    public void setOnAceites() {
-        elements.clear();
-        elements.add(new ListElement("Aceite de carro", "$350", "123456789012"));
-        elements.add(new ListElement("Aceite de moto", "$150", "345678901234"));
-        elements.add(new ListElement("Aceite de tiempos", "$250", "567890123456"));
-        elements.add(new ListElement("Aceite de bicicleta", "$550", "789012345678"));
-        elements.add(new ListElement("Aceite de maquinas", "$550", "901234567890"));
-    }
-
-    public void setOnAutopartes() {
-        elements.clear();
-        elements.add(new ListElement("Autoparte 1", "$100", "#ABC123"));
-        elements.add(new ListElement("Autoparte 2", "$200", "#DEF456"));
-        elements.add(new ListElement("Pila", "$100", "234567890123"));
-        elements.add(new ListElement("Amortiguadores", "$200", "456789012345"));
-        elements.add(new ListElement("Carburador", "$250", "678901234567"));
-        elements.add(new ListElement("Bandas", "$300", "890123456789"));
-        elements.add(new ListElement("Balatas", "$250", "987654321087"));
-    }
+//        FragmentManager fragmentManager = getFragmentManager();
+//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//        fragment_carrito carrito = new fragment_carrito();
+//        carrito.setListElement(sendItem);
+//        fragmentTransaction.replace(R.id.fragment_container, carrito);
+//        fragmentTransaction.addToBackStack(null);
+//        fragmentTransaction.commit();
+        }
 
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_productos, container, false);
+        public void setAllProducts () {
+            elements.clear();
+            elements.add(new ListElement("Aceite de carro", "$350", "123456789012"));
+            elements.add(new ListElement("Aceite de moto", "$150", "345678901234"));
+            elements.add(new ListElement("Aceite de tiempos", "$250", "567890123456"));
+            elements.add(new ListElement("Aceite de bicicleta", "$550", "789012345678"));
+            elements.add(new ListElement("Aceite de maquinas", "$550", "901234567890"));
+            elements.add(new ListElement("Pila", "$100", "234567890123"));
+            elements.add(new ListElement("Amortiguadores", "$200", "456789012345"));
+            elements.add(new ListElement("Carburador", "$250", "678901234567"));
+            elements.add(new ListElement("Bandas", "$300", "890123456789"));
+            elements.add(new ListElement("Balatas", "$250", "987654321087"));
+        }
 
-        // Obtén una referencia al Spinner desde el diseño XML
-        Spinner spinner = root.findViewById(R.id.spTipo);  // Asegúrate de tener el ID correcto
+        public void setOnAceites () {
+            elements.clear();
+            elements.add(new ListElement("Aceite de carro", "$350", "123456789012"));
+            elements.add(new ListElement("Aceite de moto", "$150", "345678901234"));
+            elements.add(new ListElement("Aceite de tiempos", "$250", "567890123456"));
+            elements.add(new ListElement("Aceite de bicicleta", "$550", "789012345678"));
+            elements.add(new ListElement("Aceite de maquinas", "$550", "901234567890"));
+        }
 
-        // Crear una lista de opciones para el Spinner
-        List<String> opciones = new ArrayList<>();
-        opciones.add("Todos los productos");
-        opciones.add("Aceites");
-        opciones.add("Autopartes");
+        public void setOnAutopartes () {
+            elements.clear();
+            elements.add(new ListElement("Autoparte 1", "$100", "#ABC123"));
+            elements.add(new ListElement("Autoparte 2", "$200", "#DEF456"));
+            elements.add(new ListElement("Pila", "$100", "234567890123"));
+            elements.add(new ListElement("Amortiguadores", "$200", "456789012345"));
+            elements.add(new ListElement("Carburador", "$250", "678901234567"));
+            elements.add(new ListElement("Bandas", "$300", "890123456789"));
+            elements.add(new ListElement("Balatas", "$250", "987654321087"));
+        }
 
-        // Crear un adaptador
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_spinner_item, opciones);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String opcionSeleccionada = opciones.get(position);
+        @Override
+        public View onCreateView (LayoutInflater inflater, ViewGroup container,
+                Bundle savedInstanceState){
+            View root = inflater.inflate(R.layout.fragment_productos, container, false);
 
-                if (opcionSeleccionada.equals("Aceites")) {
-                    setOnAceites();
-                } else if (opcionSeleccionada.equals("Autopartes")) {
-                    setOnAutopartes();
-                } else {
-                    setAllProducts();
+            // Floating Action Button
+            fab = root.findViewById(R.id.floatingActionButton);
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    FragmentManager fragmentManager = getFragmentManager();
+                    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                    fragment_carrito carrito = new fragment_carrito();
+                    carrito.setListElement(cart);
+                    fragmentTransaction.replace(R.id.fragment_container, carrito);
+                    fragmentTransaction.addToBackStack(null);
+                    fragmentTransaction.commit();
+
+                }
+            });
+
+            // Obtén una referencia al Spinner desde el diseño XML
+            Spinner spinner = root.findViewById(R.id.spTipo);  // Asegúrate de tener el ID correcto
+
+            // Crear una lista de opciones para el Spinner
+            List<String> opciones = new ArrayList<>();
+            opciones.add("Todos los productos");
+            opciones.add("Aceites");
+            opciones.add("Autopartes");
+
+            // Crear un adaptador
+            ArrayAdapter<String> adapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_spinner_item, opciones);
+            adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+            spinner.setAdapter(adapter);
+            spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                @Override
+                public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                    String opcionSeleccionada = opciones.get(position);
+
+                    if (opcionSeleccionada.equals("Aceites")) {
+                        setOnAceites();
+                    } else if (opcionSeleccionada.equals("Autopartes")) {
+                        setOnAutopartes();
+                    } else {
+                        setAllProducts();
+                    }
+
+                    listAdapter.notifyDataSetChanged();
                 }
 
-                listAdapter.notifyDataSetChanged();
-            }
+                @Override
+                public void onNothingSelected(AdapterView<?> parent) {
+                }
+            });
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
-
-        return root;
+            return root;
+        }
     }
-}

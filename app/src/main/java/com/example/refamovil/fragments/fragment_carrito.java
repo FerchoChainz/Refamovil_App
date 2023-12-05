@@ -10,6 +10,7 @@ import androidx.core.app.NotificationCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,7 +19,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
 import com.example.refamovil.R;
 import com.example.refamovil.adapters.ListAdapter;
@@ -89,22 +89,23 @@ public class fragment_carrito extends Fragment  {
         }
     }
 
-    public void setListElement(ListElement listElement){
+    public void setListElement(List<ListElement> listElement) {
         if (elements == null) {
             elements = new ArrayList<>();
         }
 
-        ListElement element = new ListElement(listElement.getNombreProducto(), listElement.getPrecio(), listElement.getCodigoProducto());
+//        ListElement element = new ListElement(listElement.getNombreProducto(), listElement.getPrecio(), listElement.getCodigoProducto());
+//
+//        Log.d("carrito", "Nombre: " + element.getNombreProducto());
+//        Log.d("carrito", "Precio: " + element.getPrecio());
+//        Log.d("carrito", "Código: " + element.getCodigoProducto());
 
-        Log.d("carrito", "Nombre: " + element.getNombreProducto());
-        Log.d("carrito", "Precio: " + element.getPrecio());
-        Log.d("carrito", "Código: " + element.getCodigoProducto());
+        elements.addAll(listElement);
 
-        elements.add(element);
     }
 
 
-    public void showMessageOnClick(ListElement item){
+    public void showMessageOnClick(ListElement item) {
         // Borrar cardView
     }
 
