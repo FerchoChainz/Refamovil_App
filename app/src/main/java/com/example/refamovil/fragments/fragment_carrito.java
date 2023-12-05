@@ -18,6 +18,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.example.refamovil.R;
 import com.example.refamovil.adapters.ListAdapter;
@@ -38,6 +39,7 @@ public class fragment_carrito extends Fragment {
     private String mParam1;
     private String mParam2;
     ListAdapter listAdapter;
+    TextView sub, total;
 
     public fragment_carrito() {
         // Required empty public constructor
@@ -64,6 +66,7 @@ public class fragment_carrito extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
         listAdapter = new ListAdapter(elements, getContext(), new ListAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(ListElement item) {
@@ -92,12 +95,6 @@ public class fragment_carrito extends Fragment {
             elements = new ArrayList<>();
         }
 
-//        ListElement element = new ListElement(listElement.getNombreProducto(), listElement.getPrecio(), listElement.getCodigoProducto());
-//
-//        Log.d("carrito", "Nombre: " + element.getNombreProducto());
-//        Log.d("carrito", "Precio: " + element.getPrecio());
-//        Log.d("carrito", "Código: " + element.getCodigoProducto());
-
         elements.addAll(listElement);
     }
 
@@ -113,6 +110,8 @@ public class fragment_carrito extends Fragment {
         View view = inflater.inflate(R.layout.fragment_carrito, container, false);
 
         comprar = view.findViewById(R.id.btnRegistrar);
+        sub = view.findViewById(R.id.txtSubTotal);
+        total = view.findViewById(R.id.txtTotal);
 
         comprar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -121,6 +120,18 @@ public class fragment_carrito extends Fragment {
                 navigateToFragmentB();
             }
         });
+
+        float subtotal = 0;
+        for(ListElement element: elements){
+            String precioConSigno = element.getPrecio().toString();
+            float soloNumero = Float.parseFloat(precioConSigno.replace("$", ""));
+            subtotal += soloNumero;
+        }
+
+        sub.setText(sub.getText() + String.valueOf(subtotal));
+        float totalAcount = (float) (subtotal * 1.10);
+        total.setText(total.getText() + String.valueOf(totalAcount));
+
         return view;
     }
 
