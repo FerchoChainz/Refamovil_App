@@ -92,26 +92,16 @@ public class ProductosFragment extends Fragment {
     }
 
 
-        public void showMessageOnClick (ListElement item){
-            ListElement sendItem = new ListElement(item.getNombreProducto(), item.getPrecio(), item.getCodigoProducto());
-            cart.add(sendItem);
-            Toast.makeText(getContext(), "Agregado al carrito", Toast.LENGTH_SHORT).show();
+    public void showMessageOnClick(ListElement item) {
+        ListElement sendItem = new ListElement(item.getNombreProducto(), item.getPrecio(), item.getCodigoProducto());
+        cart.add(sendItem);
+        Toast.makeText(getContext(), "Agregado al carrito", Toast.LENGTH_SHORT).show();
 
-            // TODO: Recorer el carrito y mostrar los elementos en un fragmento
-            for (ListElement element : cart) {
-                Log.d("TAG", element.getNombreProducto());
-            }
-
-//        FragmentManager fragmentManager = getFragmentManager();
-//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-//        fragment_carrito carrito = new fragment_carrito();
-//        carrito.setListElement(sendItem);
-//        fragmentTransaction.replace(R.id.fragment_container, carrito);
-//        fragmentTransaction.addToBackStack(null);
-//        fragmentTransaction.commit();
+        // TODO: Recorer el carrito y mostrar los elementos en un fragmento
+        for (ListElement element : cart) {
+            Log.d("TAG", element.getNombreProducto());
         }
-
-
+    }
         public void setAllProducts () {
             elements.clear();
             elements.add(new ListElement("Aceite de carro", "$350", "123456789012"));

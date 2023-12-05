@@ -27,6 +27,12 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
 
     private ListAdapter.OnItemClickListener listener;
 
+    public void removeItem(int position) {
+        mData.remove(position);
+        notifyItemRemoved(position);
+    }
+
+
     public interface  OnItemClickListener{
         void onItemClick(ListElement item);
     }
@@ -54,6 +60,8 @@ public class ListAdapter extends RecyclerView.Adapter<ListAdapter.ViewHolder> {
     public void onBindViewHolder(final ListAdapter.ViewHolder holder, final int position) {
         holder.bindData(mData.get(position));
     }
+
+
 
     public void setItems(List<ListElement> items){mData = items;}
 
