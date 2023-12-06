@@ -210,7 +210,9 @@ public class fragment_carrito extends Fragment  {
             @Override
             public void onSuccess(DocumentReference documentReference) {
                 Toast.makeText(getContext(), "Pedido creado", Toast.LENGTH_LONG).show();
-                startActivity(new Intent(getContext(), InicioActivity.class));
+                Intent intent = new Intent(getContext(), InicioActivity.class);
+                intent.putExtra("username", InicioActivity.nombre);
+                startActivity(intent);
             }
         }).addOnFailureListener(new OnFailureListener() {
             @Override
