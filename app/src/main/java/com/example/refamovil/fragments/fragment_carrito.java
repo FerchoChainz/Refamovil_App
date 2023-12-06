@@ -94,9 +94,8 @@ public class fragment_carrito extends Fragment  {
         });
         init();
         listAdapter.notifyDataSetChanged();
-        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new SwipeToDeleteCallback(listAdapter));
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(new SwipeToDeleteCallback(listAdapter, fragment_carrito.this));
         itemTouchHelper.attachToRecyclerView(recyclerView);
-
     }
 
     public void init() {
