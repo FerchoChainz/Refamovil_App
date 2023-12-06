@@ -9,11 +9,12 @@ import com.example.refamovil.fragments.fragment_carrito;
 public class SwipeToDeleteCallback extends ItemTouchHelper.SimpleCallback {
 
     private final ListAdapter adapter;
-    fragment_carrito carrito;
+    private final fragment_carrito carrito;
 
-    public SwipeToDeleteCallback(ListAdapter adapter) {
+    public SwipeToDeleteCallback(ListAdapter adapter, fragment_carrito carrito) {
         super(0, ItemTouchHelper.LEFT);
         this.adapter = adapter;
+        this.carrito = carrito;
     }
 
     @Override
@@ -25,5 +26,7 @@ public class SwipeToDeleteCallback extends ItemTouchHelper.SimpleCallback {
     public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
         int position = viewHolder.getAdapterPosition();
         adapter.removeItem(position);
+        carrito.updateSubtotalAndTotal();
     }
 }
+
