@@ -66,7 +66,8 @@
                 android:layout_height="wrap_content"
                 android:padding="5dp"
                 android:textAlignment="center"
-                android:textSize="16sp" />
+                android:textSize="20sp"
+                android:textStyle="bold" />
         </ScrollView>
 
         <TextView
